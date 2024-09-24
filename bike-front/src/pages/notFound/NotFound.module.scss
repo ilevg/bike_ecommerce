@@ -1,0 +1,19 @@
+.notFound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    font-family: var(--font-bebas);
+    font-size: 40px;
+    @media (max-width: 768px) {
+        font-size: 30px;
+    }
+    h1 {
+        font-size: 400px;
+        color: var(--color-caramel);
+        @media (max-width: 768px) {
+            font-size: 200px;
+        }
+    }
+}

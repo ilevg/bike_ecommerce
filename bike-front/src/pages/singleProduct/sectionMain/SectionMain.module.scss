@@ -1,0 +1,69 @@
+.main {
+    display: flex;
+    gap: 145px;
+    font-family: var(--font-inter);
+    @media (max-width: 1200px) {
+        gap: 50px;
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.productButtons {
+    display: flex;
+    gap: 16px;
+}
+
+.productQuantityCont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 125px;
+    padding: 16px;
+    border: 1px solid var(--color-lighter-gray);
+    border-radius: 10px;
+}
+.cardPriceReg {
+    padding-left: 10px;
+    font-size: var(--font-size-subtile-sec);
+    text-decoration: line-through;
+    color: var(--color-light-gray);
+}
+
+.name {
+    font-family: var(--font-bebas);
+    font-size: var(--font-size-h3);
+}
+
+.brand, .article {
+    color: var(--color-light-gray);
+    font-size: var(--font-size-text-2);
+}
+
+.stockGreen {
+    color: var(--color-forest-green);
+}
+.stockRed {
+    color: var(--color-red-orange);
+
+}
+.cardPrice {
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+}
+.desc {
+    color: var(--color-dim-gray);
+    line-height: 200%;
+
+}
+
+.subtitle {
+    margin-top: 100px;
+}

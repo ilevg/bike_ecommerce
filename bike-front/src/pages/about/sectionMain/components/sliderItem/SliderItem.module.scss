@@ -1,0 +1,41 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 32px;
+    overflow: hidden;
+    width: 400px;
+    height: 335px;
+    gap: 40px;
+    font-family: var(--font-inter);
+    border-radius: 10px;
+    background-color: var(--color-charcoal);
+    color: var(--color-lighter-gray);
+    &:hover {
+        .mainCardBg {
+            transform: scaleY(1.4);
+            transition: transform .5s ease;
+        }
+    }
+    @media (max-width: 992px) {
+        width: 100%;
+        margin-left: 100px;
+    }
+    @media (max-width: 768px) {
+        height: 235px;
+    }
+}
+.mainCardTitle {
+    font-size: var(--font-size-h4);
+    color: var(--color-white);
+}
+.mainCardBg {
+    position: absolute;
+    right: -30px;
+    top: 200px;
+    pointer-events: none;
+    transition: transform .3s ease;
+    @media (max-width: 768px) {
+        top: 120px;
+    }
+}

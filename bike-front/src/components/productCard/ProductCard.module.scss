@@ -1,0 +1,113 @@
+.card {
+    position: relative;
+    width: 290px;
+    height: 373px;
+    font-family: var(--font-inter);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    transition: height .3s ease, box-shadow .3s ease;
+    &:hover {
+        height: 441px;
+        z-index: 100;
+        transition: height .3s ease, box-shadow .3s ease;
+        box-shadow: 
+            0px 0px 0px 0px rgba(186, 186, 186, 0.10), 
+            2px 9px 21px 0px rgba(186, 186, 186, 0.10), 
+            6px 38px 38px 0px rgba(186, 186, 186, 0.09),
+             14px 84px 51px 0px rgba(186, 186, 186, 0.05), 
+             25px 150px 61px 0px rgba(186, 186, 186, 0.01), 
+             39px 235px 67px 0px rgba(186, 186, 186, 0.00);
+             
+        .cardBtn {
+            height: 57px;
+            transition: height .3s ease;
+        }
+    }
+    @media (max-width: 768px) {
+        height: 441px;
+    }
+}
+
+.cardFlagImg {
+    position: absolute;
+    width: 72px;
+    height: 38px;
+    flex-shrink: 0;
+    z-index: 10;
+
+}
+.cardFlagImgHidden {
+    visibility: hidden;
+}
+
+.cardImgWrapper {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.cardProductImg {
+    width: 255px;
+    height: auto;
+    position: relative;
+}
+
+.cardProductInfo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    font-size: var(--font-size-text);
+    color: var(--color-forest-green)
+}
+.outOfStock {
+    color: var(--color-red-orange-2);
+}
+
+.cardDesc {
+    position: absolute;
+    width: 255px;
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cardDescText {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    /* Limits the display of text to two lines */
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: var(--font-size-subtile-sec);
+    line-height: 1.6;
+    color: var(--color-black);
+}
+
+.cardPrice {
+    position: absolute;
+    top: 330px;
+    left: 16px;
+    color: var(--2-grey, #777);
+    font-family: var(--font-inter);
+    font-weight: 500;
+}
+.cardPriceReg {
+    padding-left: 10px;
+    font-size: 12px;
+    text-decoration: line-through;
+    color: var(--color-light-gray);
+}
+
+.cardBtn {
+    width: 270px;
+    margin: 380px auto 0 auto ;
+    height: 0px;
+    overflow: hidden;
+    transition: height .3s ease;
+    @media (max-width: 768px) {
+        height: 57px;
+    }
+}

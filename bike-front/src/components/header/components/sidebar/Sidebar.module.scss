@@ -1,0 +1,117 @@
+.sidebarWrapper {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+}
+.sidebarBg {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.sidebarMob {
+    margin-right: 20px;
+    @media (min-width: 993px) {
+        display: none;
+    }
+}
+.sidebar {
+    position: absolute;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    padding-top: 105px;
+    background-color: var(--color-white);
+    overflow:scroll;
+    z-index: 10000;
+    @media (max-width: 1200px) {
+        width: 350px;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+.navMobLogo {
+    width: 65px;
+    height: auto;
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    z-index: 1000;
+    @media (min-width: 993px) {
+        display: none;
+    }
+}
+.sidebarIcon {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform .3s ease;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 32px;
+        background-color: var(--color-light-gray);
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: background-color .3s ease;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+
+    &:hover {
+        transform: scale(105%, 105%);
+
+        &:before,
+        &:after {
+            background-color: var(--color-red-orange-2);
+            transition: background-color .3s ease;
+        }
+
+        transition: transform .3s ease;
+    }
+}
+.sidebarItems {
+    margin-left: 40px;
+    font-family: var(--font-inter);
+}
+.sidebarTitle {
+    margin-bottom: 40px;
+    font-family: var(--font-bebas);
+    font-size: 40px;
+}
+.sidebarList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-weight: 600;
+}
+
+
+.fadeIn {
+    opacity: 1;
+    transform: translateX(0);
+    right: 0;
+    transition: transform 0.5s ease-in-out, opacity .8s ease-in-out;
+}
+
+.fadeOut {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}

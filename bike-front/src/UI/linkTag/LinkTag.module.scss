@@ -1,0 +1,18 @@
+.link {
+    font-size: 16px;
+    font-family: var(--font-inter);
+    text-decoration: none;
+    transition: color .3s ease;
+    &:hover {
+        color: var(--color-caramel);
+    }
+}
+.black {
+    color: var(--color-black);
+}
+.white {
+    color: var(--color-white);
+}
+.gray {
+    color: var(--color-gray);
+}

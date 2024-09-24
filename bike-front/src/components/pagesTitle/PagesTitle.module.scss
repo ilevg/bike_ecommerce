@@ -1,0 +1,34 @@
+.pagesTitle {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    font-family: var(--font-bebas);
+    color: var(--color-white);
+
+    @media screen and (max-width: 992px) {
+        height: 180px;
+    }
+}
+
+.pagesTitleWrapp {
+    margin-top: 48px;
+
+    @media screen and (max-width: 992px) {
+        margin-top: 28px;
+    }
+}
+
+.title {
+    margin-top: 64px;
+    font-size: 60px;
+
+    @media screen and (max-width: 992px) {
+        margin-top: 36px;
+        font-size: 50px;
+    }
+}
+
+.page {
+    color: var(--color-caramel);
+    font-family: var(--font-inter);
+}

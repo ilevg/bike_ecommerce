@@ -1,0 +1,62 @@
+.BrandCarousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.BrandCarousel div {
+  display: flex;
+  align-items: center;
+  width: 350%;
+  animation: carousel-infinite 15s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+  @media (max-width: 768px) {
+    width: 600%;
+  }
+}
+
+.BrandCarouselWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 350px;
+  width: 100%;
+  @media (max-width: 1600px) {
+    height: 200px;
+  }
+  @media (max-width: 1200px) {
+    height: 160px;
+  }
+  @media (max-width: 992px) {
+    height: 110px;
+  }
+}
+
+.BrandCarouselImg {
+  height: 80px;
+  transition: height .5s ease;
+
+  @media (max-width: 1600px) {
+    height: 60px;
+  }
+  @media (max-width: 1200px) {
+    height: 50px;
+  }
+  @media (max-width: 992px) {
+    height: 45px;
+  }
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
+@keyframes carousel-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

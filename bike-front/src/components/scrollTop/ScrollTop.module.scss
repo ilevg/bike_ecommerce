@@ -1,0 +1,22 @@
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+.opacityElem {
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 10000;
+    animation: fadeIn 1s ease;
+    pointer-events: none;
+}
+.hide {
+    display: none;
+}

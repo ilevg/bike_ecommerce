@@ -1,0 +1,7 @@
+.slider {
+    height: 760px;
+    background: var(--color-lightest-gray);
+    @media (max-width: 992px) {
+        height: 650px;
+    }
+}

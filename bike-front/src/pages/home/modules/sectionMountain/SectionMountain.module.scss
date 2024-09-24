@@ -1,0 +1,93 @@
+.mountain {
+    display: flex;
+    margin-bottom: 65px;
+    font-family: var(--font-inter);
+    line-height: 160%;
+    @media (max-width: 768px) {
+        position: relative;
+        flex-direction: column;
+    }
+}
+.mountainSliderWrapp {
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+.mountainItemsWrapp {
+    display: flex;
+    
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+.mountainItem {
+    width: 290px;
+    height: 235px;
+    margin: 0 16px 16px 0;
+    padding: 25px;
+    background-color: var(--color-eerie-black);
+    color: var(--color-white);
+    border-radius: 10px;
+    @media (max-width: 1600px) {
+        width: 245px;
+        padding: 15px;
+    }
+    @media (max-width: 992px) {
+        width: 210px;
+        height: 200px;
+        padding: 8px;
+        margin: 0 8px 8px 0;
+    }
+}
+.mountainTitleWrapp {
+    display: flex;
+    justify-content: space-between;
+}
+.mountainTitle {
+    margin: 20px 0 50px 0;
+    font-size: var(--font-size-subtile);
+    font-weight: 500;
+    @media (max-width: 992px) {
+        margin: 5px 0 30px 0;
+    }
+}
+.mountainIcon {
+    width: 60px;
+    height: 60px;
+    border: 1px dashed var(--color-white);
+    @media (max-width: 992px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+.mountainWrapper {
+    margin-left: 140px;
+    @media (max-width: 1600px) {
+        margin-left: 50px;
+    }
+    @media (max-width: 992px) {
+        margin-left: 8px;
+    }
+    @media (max-width: 768px) {
+        margin-top: 40px;
+        margin-left: 8px;
+    }
+}
+.mountainImg {
+    width: 100%;
+    height: 285px;
+    @media (max-width: 1600px) {
+        height: 245px;
+    }
+    @media (max-width: 992px) {
+        height: 180px;
+    }
+    @media (max-width: 768px) {
+        height: auto;
+    }
+}
+
+.mountainDesc {
+    margin: 30px 0 40px;
+    color: var(--color-dim-gray);
+}

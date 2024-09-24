@@ -1,0 +1,35 @@
+.infoCard {
+    width: 95%;
+    height: 235px;
+    margin: 0 16px 16px 0;
+    padding: 25px;
+    padding-left: 70px;
+    font-family: var(--font-inter);
+    background-color: var(--color-eerie-black);
+    color: var(--color-white);
+    border-radius: 10px;
+    @media (max-width: 450px) {
+        padding-left: 35px;
+    }
+}
+.bgCaramel {
+    background-color: var(--color-caramel);
+}
+.infoCardTitleWrapp {
+    display: flex;
+    justify-content: space-between;
+}
+.infoCardTitle {
+    margin: 20px 0 50px 0;
+    font-size: var(--font-size-subtile);
+    font-weight: 500;
+}
+.infoCardIcon {
+    width: 60px;
+    height: 60px;
+    border: 1px dashed var(--color-white);
+}
+.infoCardDesc {
+    display: block;
+    max-width: 250px;
+}

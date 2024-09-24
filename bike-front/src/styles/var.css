@@ -1,0 +1,40 @@
+:root {
+    /* Fonts */
+    --font-inter: 'Inter', sans-serif;
+    --font-bebas: 'BebasNeue', sans-serif;
+    /* colors */
+    --color-black: #131313;
+    --color-black-sec: #131313;
+    --color-eerie-black: #34312D;
+    --color-charcoal: #2E2E2E;
+    --color-dim-gray: #4C4C4C;
+    --color-gray: #777777;
+    --color-light-gray: #B3B3B3;
+    --color-lighter-gray: #E5E5E5;
+    --color-lightest-gray: rgb(248, 248, 248);
+    --color-white-smoke: #F8F8F8;
+    --color-white: #FFFFFF;
+    --color-caramel: #F57520;
+    --color-pumpkin-orange: #EB6B16;
+    --color-dark-tangerine: #E1610C;
+    --color-red-orange: #D75702;
+    --color-red-orange-2: #F53A20;
+    --color-forest-green: #4D932C;
+
+    /* font size */
+        /* desc: */
+    --font-size-h1: 110px;
+    --font-size-h2: 64px;
+    --font-size-h3: 40px;
+    --font-size-h4: 24px;
+    --font-size-subtile: 20px;
+    --font-size-subtile-sec: 18px;
+    --font-size-btn: 16px;
+    --font-size-text: 16px;
+    --font-size-text-2: 14px;
+    --font-size-text-3: 12px;
+        /* mobile: */
+    --font-size-h1-mob: 60px;
+    --font-size-h2-mob: 50px;
+    --font-size-h4-mob: 32px;
+}

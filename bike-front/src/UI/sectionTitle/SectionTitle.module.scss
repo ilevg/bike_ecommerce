@@ -1,0 +1,10 @@
+.sectionTitle {
+    color: var(--color-black);
+    font-family: var(--font-bebas);
+    font-size: 64px;
+    text-transform: uppercase;
+
+    @media (max-width: 992px) {
+        font-size: var(--font-size-h2-mob);
+    }
+}

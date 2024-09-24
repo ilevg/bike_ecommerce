@@ -1,0 +1,40 @@
+.closeBtn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform .3s ease;
+    margin-left: 10px;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 32px;
+        background-color: var(--color-light-gray);
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: background-color .3s ease;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+
+    &:hover {
+        transform: scale(105%, 105%);
+
+        &:before,
+        &:after {
+            background-color: var(--color-red-orange-2);
+            transition: background-color .3s ease;
+        }
+
+        transition: transform .3s ease;
+    }
+}

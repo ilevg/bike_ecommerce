@@ -1,0 +1,14 @@
+.deliveryPay {
+    font-family: var(--font-inter);
+    font-size: var(--font-size-text);
+    line-height: 200%;
+}
+.deliveryPayDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.deliveryPayTitle {
+    margin: 80px 0 40px 0;
+}

@@ -1,0 +1,43 @@
+.personalData {
+    width: 620px;
+    @media (max-width: 768px) {
+       width: 100%;
+    }
+}
+.personalSubtitle {
+    margin-bottom: 48px;
+    font-family: var(--font-bebas);
+    font-size: var(--font-size-h3);
+}
+.personalForm {
+    display: flex;
+    flex-direction: column;
+}
+.inputCont {
+    display: flex;
+    gap: 24px;
+    @media (max-width: 992px) {
+       flex-direction: column;
+       gap: 0;
+    }
+}
+.input {
+    height: 52px;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-lighter-gray);
+    border: none;
+    border-radius: 10px;
+}
+
+.lable {
+    color: var(--color-dim-gray);
+    line-height: 300%;
+}
+.btn {
+    width: 180px;
+    margin-top: 40px;
+    @media (max-width: 768px) {
+        width: 100%;
+     }
+}

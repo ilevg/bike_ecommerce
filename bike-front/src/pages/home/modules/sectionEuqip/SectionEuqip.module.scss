@@ -1,0 +1,7 @@
+.euqipSection {
+    height: 810px;
+    background: var(--color-lightest-gray);
+    @media (max-width: 992px) {
+        height: 650px;
+    }
+}

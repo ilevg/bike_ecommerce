@@ -1,0 +1,108 @@
+
+.cartProduct {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-inter);
+    border-bottom: 1px solid rgb(229, 229, 229);
+
+    @media screen and (max-width: 568px) {
+        position: relative;
+        flex-direction: column;
+    }
+}
+
+.productImg {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.productNameCont {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 1600px) {
+        width: 320px;
+    }
+
+    @media screen and (max-width: 992px) {
+        width: 350px;
+    }
+
+    @media screen and (max-width: 568px) {
+        width: 100%;
+    }
+}
+
+.cartProductName {
+    display: block;
+    width: 200px;
+    font-size: var(--font-size-subtile-sec);
+    line-height: 160%;
+
+    @media screen and (max-width: 1200px) {
+        font-size: var(--font-size-text-2);
+    }
+}
+
+.productPriceCont {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 1200px) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: 568px) {
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.cartProductPrice {
+    font-size: var(--font-size-subtile);
+    font-weight: 500;
+    line-height: 160%;
+    margin-left: 30px;
+
+    @media screen and (max-width: 1200px) {
+        margin-top: 10px;
+        margin-left: 0px;
+        display: flex;
+        font-size: var(--font-size-text);
+    }
+    @media screen and (max-width: 568px) {
+        font-size: var(--font-size-h4);
+        flex-direction: column;
+    }
+}
+
+.productOldPrice {
+    margin-left: 5px;
+    color: rgb(179, 179, 179);
+    font-size: 16px;
+    text-decoration: line-through;
+
+    @media screen and (max-width: 998px) {
+        font-size: var(--font-size-text-3);
+    }
+}
+.sidebarIconCont {
+    @media screen and (max-width: 568px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+.productQuantity {
+    display: flex;
+    text-align: center;
+    width: 125px;
+    padding: 16px;
+    border: 1px solid var(--color-lighter-gray);
+    border-radius: 10px;
+}

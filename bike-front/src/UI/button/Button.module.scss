@@ -1,0 +1,29 @@
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    font-family: var(--font-inter);
+    font-size: var(--font-size-btn);
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-caramel);
+    color: var(--color-white);
+    transition: background-color .3s ease;
+    &:hover {
+        background-color: #ff8935;
+        transition: background-color .3s ease;
+    }
+    &:active {
+        background-color: #E1610C;
+        transition: background-color .1s ease;
+    }
+}
+.btnDisabled {
+    background-color: var(--color-lighter-gray);
+    &:hover {
+        background-color: var(--color-lighter-gray);
+    }
+}

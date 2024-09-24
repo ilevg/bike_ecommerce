@@ -1,0 +1,29 @@
+.blog {
+    margin-top: 48px;
+    margin-bottom: 160px;
+    @media (max-width: 1600px) {
+        margin-bottom: 40px;
+    }
+}
+.blogPosts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: hidden;
+}
+.blogBtn {
+    display: block;
+    margin: 28px auto 0 auto;
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    transition: color .3s ease;
+    &:hover {
+        color: var(--color-caramel);
+        transition: color .3s ease;
+    }
+}

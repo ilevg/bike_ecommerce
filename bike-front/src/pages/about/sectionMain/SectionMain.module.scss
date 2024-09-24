@@ -1,0 +1,80 @@
+.mainTitle {
+  margin: 80px 0 40px 0;
+  font-size: var(--font-size-h1);
+  font-family: var(--font-bebas);
+  @media (max-width: 992px) {
+    font-size: var(--font-size-h1-mob);
+    margin-top: 40px;
+  }
+  @media (max-width: 768px) {
+    width: auto;
+    margin-bottom: 24px;
+  }
+}
+.mainTitleBike {
+  color: var(--color-caramel);
+}
+
+.mainCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  z-index: -1;
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+.slider {
+  @media (min-width: 993px) {
+    display: none;
+  }
+}
+
+.mainAbout {
+  display: flex;
+  align-items: center;
+  margin: 100px 0;
+  @media (max-width: 992px) {
+    margin: 40px 0;
+  }
+}
+.mainAboutItems {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 580px;
+  background-color: var(--color-black);
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+.mainAboutItemsWrapp {
+  position: absolute;
+  right: 85px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 550px;
+  @media (max-width: 1600px) {
+    width: 450px;
+    right: 40px;
+  }
+  @media (max-width: 1200px) {
+    right: 20px;
+  }
+}
+.mainAboutTitle {
+  font-size: var(--font-size-h2);
+  color: var(--color-white);
+}
+.mainAboutDesc {
+  color: var(--color-lighter-gray);
+}
+.mainAboutImg {
+  width: 50%;
+  height: auto;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}

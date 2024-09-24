@@ -1,0 +1,14 @@
+.product {
+    margin-bottom: 160px;
+    @media (max-width: 1200px) {
+        margin-bottom: 60px;
+    }
+}
+.productHeaderLinks {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: var(--font-inter);
+}
+.productName {
+    color: var(--color-caramel);
+}

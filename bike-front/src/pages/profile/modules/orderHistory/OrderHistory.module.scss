@@ -1,0 +1,121 @@
+.container {
+  width: 810px;
+
+  @media screen and (max-width: 1600px) {
+    width: 650px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.subtitle {
+  margin-bottom: 48px;
+  font-family: var(--font-bebas);
+  font-size: var(--font-size-h3);
+}
+
+.table {
+  width: 100%;
+  line-height: 350%;
+}
+
+.tableHeader {
+  color: var(--color-white);
+  background-color: var(--color-caramel);
+  border-radius: 10px;
+}
+
+// remove!!!!!
+.productContSec {
+  background-color: var(--color-lightest-gray);
+}
+
+.productCont,
+.tableHeader {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+  padding: 0 0 0 24px;
+  white-space: nowrap;
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+    padding-left: 16px;
+    gap: 10px;
+  }
+}
+
+.orderStatus {
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.productClose {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.productOpen {
+  height: 118px;
+  overflow: hidden;
+
+  transition: height 0.3s ease;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-inter);
+  border-bottom: 1px solid rgb(229, 229, 229);
+  @media screen and (max-width: 1600px) {
+    justify-content: flex-start;
+    gap: 50px;
+  }
+}
+
+.img {
+  width: 130px;
+
+  @media screen and (max-width: 1600px) {
+    width: 100px;
+  }
+}
+
+.productName {
+  width: 300px;
+  line-height: 160%;
+  text-align: left;
+
+  @media screen and (max-width: 1600px) {
+    width: 200px;
+  }
+}
+
+.productPrice {
+  font-size: var(--font-size-subtile);
+  font-weight: 500;
+  line-height: 160%;
+  margin-right: 200px;
+
+  @media screen and (max-width: 1600px) {
+    margin-right: 100px;
+  }
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.productOldPrice {
+  text-decoration: line-through;
+  font-size: var(--font-size-text);
+  font-weight: 300;
+  color: var(--color-lighter-gray);
+}
