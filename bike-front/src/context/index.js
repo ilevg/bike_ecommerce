@@ -91,14 +91,17 @@ export const FilterProvider = ({ children }) => {
     }));
   }, []);
 
-  const defaultFilterValues = {
-    "Only in stock": false,
-    "Bicycles Types": [],
-    Brand: [],
-    Price: [],
-    Country: [],
-    Year: [],
-  };
+  const defaultFilterValues = useMemo(
+    () => ({
+      "Only in stock": false,
+      "Bicycles Types": [],
+      Brand: [],
+      Price: [],
+      Country: [],
+      Year: [],
+    }),
+    []
+  );
 
   return (
     <FilterContext.Provider

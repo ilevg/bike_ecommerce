@@ -132,7 +132,7 @@ const Catalog = () => {
 
   useEffect(() => {
     setFilterValues(defaultFilterValues);
-  }, [pathname, products, setFilterValues]);
+  }, [pathname, products, setFilterValues, defaultFilterValues]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

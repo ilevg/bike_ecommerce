@@ -3,6 +3,5 @@ import { fetchProducts } from "../../../services/apiService";
 
 export const productsSort = async () => {
   const products = await fetchProducts();
-  const newProductsList = products.slice(0, 8).sort(sortArrByDateDesc);
-  return newProductsList;
+  return products.slice(0, 8).sort(sortArrByDateDesc);
 };

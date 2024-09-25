@@ -13,8 +13,9 @@ import CartItem from "./components/cartItem/CartItem";
 
 const Cart = () => {
   const sortProductsForSlider = useSortProducts("", 8);
-  const [cart] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
 
+  !cart && console.log(setCart);
   return (
     <>
       <PagesTitle img={titleBgImage} pageName="Cart" />
