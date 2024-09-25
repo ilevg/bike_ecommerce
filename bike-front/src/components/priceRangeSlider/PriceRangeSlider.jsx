@@ -12,7 +12,7 @@ const PriceRangeSlider = ({ minPrice, maxPrice }) => {
   useEffect(() => {
     const priceRange = [min, max];
     updateFilter("Price", priceRange);
-  }, [min, max]);
+  }, [min, max, updateFilter]);
 
   const handleChange = ([min, max]) => {
     setMin(min);

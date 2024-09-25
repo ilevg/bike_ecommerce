@@ -9,6 +9,7 @@ const Registration = ({ props }) => {
   const [activeAuthComponent, setActiveAuthComponent] = useContext(
     ActiveAuthComponentContext
   );
+  !activeAuthComponent && console.log(activeAuthComponent);
   const [error, setError] = useState(false);
 
   const handleTabClick = (tab) => {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LinkTag from "../../UI/linkTag/LinkTag";
 import SectionMain from "./sectionMain/SectionMain";
 import styles from "./SingleProduct.module.scss";
@@ -10,11 +10,25 @@ import SectionParam from "./sectionParam/SectionParam";
 import classNames from "classnames";
 
 import { fetchProducts } from "../../services/apiService";
-const productsList = await fetchProducts();
 
 const SingleProduct = () => {
+  const [productsList, setProductsList] = useState([]);
   const [singleProduct, setSingleProduct] = useContext(SingleProductContext);
   const { slug } = useParams();
+
+  useEffect(() => {
+    const fetchNavLinks = async () => {
+      try {
+        const products = await fetchProducts();
+        if (products) {
+          setProductsList(products);
+        }
+      } catch (error) {
+        console.error("Failed to fetch navigation links:", error);
+      }
+    };
+    fetchNavLinks();
+  }, []);
 
   const productCategoryName =
     singleProduct.categories && singleProduct.categories[0].name;
@@ -31,7 +45,7 @@ const SingleProduct = () => {
       }
     };
     fetchProduct();
-  }, [slug]);
+  }, [slug, setSingleProduct, productsList]);
 
   return (
     <div className={classNames("container", styles.product)}>

@@ -1,1 +1,1 @@
-Header set Access-Control-Allow-Origin "http://ilnytskyi.atwebpages.com, http://bike-ecommerce:3000, http://localhost:3000"
+Header set Access-Control-Allow-Origin "http://bikeecommerce.atwebpages.com, http://localhost:3000"

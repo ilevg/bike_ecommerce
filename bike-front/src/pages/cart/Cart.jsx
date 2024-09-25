@@ -13,7 +13,7 @@ import CartItem from "./components/cartItem/CartItem";
 
 const Cart = () => {
   const sortProductsForSlider = useSortProducts("", 8);
-  const [cart, setCart] = useContext(CartContext);
+  const [cart] = useContext(CartContext);
 
   return (
     <>

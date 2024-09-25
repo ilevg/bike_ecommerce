@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     "http://localhost:3000",
     "http://bike-ecommerce:3000",
     "http://192.168.2.239:3000",
-    "http://ilnytskyi.atwebpages.com/"
+    "http://bikeecommerce.atwebpages.com",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
@@ -60,7 +60,7 @@ app.get("/customers?:id", async (req, res) => {
 app.post("/orders", async (req, res) => {
   try {
     const orderData = req.body;
-    const isHeadlessCMS = req.headers["x-headless-cms"]; // Проверяем наличие заголовка X-Headless-CMS
+    const isHeadlessCMS = req.headers["x-headless-cms"];
     if (isHeadlessCMS && isHeadlessCMS.toLowerCase() === "true") {
       const { data } = await api.post("orders", orderData);
       res.json(data);

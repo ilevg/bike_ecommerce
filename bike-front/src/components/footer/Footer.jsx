@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.scss";
 import Button from "../../UI/button/Button";
 import { Link } from "react-router-dom";
@@ -11,12 +11,25 @@ import { fetchData } from "../../services/apiService";
 import LinkTag from "../../UI/linkTag/LinkTag";
 import classNames from "classnames";
 
-const { data } = await fetchData(
-  "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
-);
-const navLinks = data.header.headerMenuItems;
-
 const Footer = () => {
+  const [navLinks, setNavLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchNavLinks = async () => {
+      try {
+        const { data } = await fetchData(
+          "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
+        );
+        if (data) {
+          setNavLinks(data.header.headerMenuItems);
+        }
+      } catch (error) {
+        console.error("Failed to fetch navigation links:", error);
+      }
+    };
+    fetchNavLinks();
+  }, []);
+
   return (
     <div className={styles.footer}>
       <div className={styles.footerWrapper}>

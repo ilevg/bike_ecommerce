@@ -9,6 +9,7 @@ import styles from "./CartItem.module.scss";
 
 const CartItem = ({ product, id }) => {
   const [cart, setCart] = useContext(CartContext);
+  !cart && console.log(cart);
 
   const [productCount, setProductCount] = useState(product.productQty);
 

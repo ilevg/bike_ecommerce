@@ -6,7 +6,7 @@ import { SingleProductContext } from "../../../context/index";
 import AddToCartBtn from "../compoments/AddToCartBtn";
 
 const SectionMain = () => {
-  const [singleProduct, setSingleProduct] = useContext(SingleProductContext);
+  const [singleProduct] = useContext(SingleProductContext);
   const productImages = singleProduct && singleProduct.images;
 
   const productAttributes = singleProduct && singleProduct.attributes;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function SignUpAPI(props) {
@@ -40,7 +40,7 @@ function SignUpAPI(props) {
           props.setServerMessage("An error occurred during registration.");
         });
     }
-  }, [props.APIDetailsSignUp, props]);
+  }, [props.APIDetailsSignUp, props, authKey, wordpressUrl]);
 
   useEffect(() => {
     if (urlToLogin.length > 0) {

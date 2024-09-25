@@ -19,7 +19,7 @@ const SingleProductImgSlider = ({ productImages }) => {
     customPaging: function (i) {
       const thumbnail = productImagesSrc[i];
       return (
-        <a className="imgLink">
+        <a href="i" className="imgLink">
           <img className="imgMini" src={thumbnail} alt="Product Thumbnail" />
         </a>
       );

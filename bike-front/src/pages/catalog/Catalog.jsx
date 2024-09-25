@@ -48,15 +48,8 @@ const Catalog = () => {
       );
     }
 
-    const maxPricea = () => {
-      let allPrices = [];
-      productsCopy &&
-        productsCopy.forEach((product) => {
-          allPrices.push(product.price);
-        });
-      setMaxPrice(Math.max(...allPrices));
-    };
-    maxPricea();
+    const allPrices = productsCopy.map((product) => product.price);
+    setMaxPrice(Math.max(...allPrices));
 
     let filteredProds = [...productsCopy];
     const switchFilterFunc = (key, values) => {
@@ -99,7 +92,7 @@ const Catalog = () => {
       switchFilterFunc(key, values);
     }
     setFilteredProducts(filteredProds);
-  }, [filterValues]);
+  }, [products, filterValues, filterValueInStock, getCatalogTypeFormated]);
 
   useEffect(() => {
     filterAllFunc();
@@ -131,7 +124,7 @@ const Catalog = () => {
       setDropdownField(itemsList);
     };
     fetchDropdownField();
-  }, [catalogType, filteredProducts]);
+  }, [catalogType, filteredProducts, maxPrice]);
 
   useEffect(() => {
     setCurrentPage(1);

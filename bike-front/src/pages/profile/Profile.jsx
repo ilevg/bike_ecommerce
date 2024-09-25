@@ -7,9 +7,6 @@ import OrderHistory from "./modules/orderHistory/OrderHistory";
 import { ActiveProfileTabContext } from "../../context";
 
 const Profile = (props) => {
-  const [pageText, setPageText] = useState(
-    "You are not currently logged in. Please login to see your user profile"
-  );
   const [email, setEmail] = useState("");
   const [regDate, setRegDate] = useState("");
   const [activeTab] = useContext(ActiveProfileTabContext);
@@ -17,7 +14,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     if (userJWT.length > 0) {
-      let url = `http://ilnytskyi.atwebpages.com/?rest_route=/simple-jwt-login/v1/auth/validate&JWT=${userJWT}`;
+      let url = `http://bikeecommerce.atwebpages.com/?rest_route=/simple-jwt-login/v1/auth/validate&JWT=${userJWT}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -27,7 +24,6 @@ const Profile = (props) => {
             setRegDate(
               `Date of registration: ${data["data"]["user"]["user_registered"]}`
             );
-            setPageText(`${data["data"]["user"]["user_login"]}`);
             props.setIsLoggedIn(true);
             props.setServerMessage("");
           } else {
@@ -36,7 +32,7 @@ const Profile = (props) => {
           }
         });
     }
-  }, [userJWT]);
+  }, [userJWT, props]);
 
   const renderContent = () => {
     switch (activeTab) {

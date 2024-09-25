@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { SingleProductContext } from "../../../context/index";
 
 const SectionParam = () => {
-  const [singleProduct, setSingleProduct] = useContext(SingleProductContext);
+  const [singleProduct] = useContext(SingleProductContext);
 
   const attributes = singleProduct && singleProduct.attributes;
   const description =

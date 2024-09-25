@@ -11,6 +11,7 @@ const AddToCartBtn = ({ product, disabled }) => {
   const [cart, setCart] = useContext(CartContext);
   let existingCart = localStorage.getItem("woo-react-cart");
 
+  !cart && console.log("cart");
   const handleAddToCartClick = () => {
     if (existingCart) {
       existingCart = JSON.parse(existingCart);

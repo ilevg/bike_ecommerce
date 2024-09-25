@@ -1,4 +1,11 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from "react";
+
 import { fetchProducts } from "../services/apiService";
 import { fetchData } from "../services/apiService";
 
@@ -77,12 +84,12 @@ export const FilterProvider = ({ children }) => {
     Year: [],
   });
 
-  const updateFilter = (filterName, value) => {
+  const updateFilter = useCallback((filterName, value) => {
     setFilterValues((prevValues) => ({
       ...prevValues,
-      [filterName]: Array.isArray(value) ? value.map((value) => value) : value,
+      [filterName]: value, // No need for .map, directly set the value
     }));
-  };
+  }, []);
 
   const defaultFilterValues = {
     "Only in stock": false,
@@ -97,7 +104,7 @@ export const FilterProvider = ({ children }) => {
     <FilterContext.Provider
       value={{
         filterValues,
-        updateFilter,
+        updateFilter, // Memoized function
         defaultFilterValues,
         setFilterValues,
       }}

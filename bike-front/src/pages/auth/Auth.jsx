@@ -12,6 +12,7 @@ const Auth = (props) => {
   const [activeAuthComponent, setActiveAuthComponent] = useContext(
     ActiveAuthComponentContext
   );
+  !setActiveAuthComponent && console.log(setActiveAuthComponent);
   const renderContent = () => {
     switch (activeAuthComponent) {
       case "login":

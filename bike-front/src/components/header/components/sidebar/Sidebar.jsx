@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Sidebar.module.scss";
 import LinkTag from "../../../../UI/linkTag/LinkTag";
 import DropdownField from "../../../../UI/dropdownField/DropdownField";
@@ -6,11 +6,6 @@ import logo from "../../../../assets/img/logo/logo-black.png";
 
 import { fetchData } from "../../../../services/apiService";
 import { linkData } from "../../data/linkData";
-
-const { data } = await fetchData(
-  "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
-);
-const navLinks = data.header.headerMenuItems;
 
 const renderListLinks = (children) =>
   children &&
@@ -23,6 +18,24 @@ const renderListLinks = (children) =>
   });
 
 const Sidebar = ({ isOpen, menuToggle }) => {
+  const [navLinks, setNavLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchNavLinks = async () => {
+      try {
+        const { data } = await fetchData(
+          "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
+        );
+        if (data) {
+          setNavLinks(data.header.headerMenuItems);
+        }
+      } catch (error) {
+        console.error("Failed to fetch navigation links:", error);
+      }
+    };
+    fetchNavLinks();
+  }, []);
+
   const classToogle = isOpen
     ? `${styles.sidebarWrapper} ${styles.fadeIn}`
     : `${styles.sidebarWrapper} ${styles.fadeOut}`;

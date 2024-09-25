@@ -33,6 +33,9 @@ const ProductCard = ({ product }) => {
     case "switzerland":
       flagPath = `${wordpressSiteUrl}/assets/flags/swiss.png`;
       break;
+    default:
+      flagPath = `${wordpressSiteUrl}/assets/flags/usa.png`;
+      break;
   }
 
   return (
