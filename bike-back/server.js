@@ -32,7 +32,9 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 app.use(bodyParser.json());
-
+app.get("/", (req, res) => {
+  res.send("API is running!");
+});
 app.get("/api/products", async (req, res) => {
   try {
     const { data } = await api.get("products", { per_page: 50 });

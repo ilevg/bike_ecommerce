@@ -1,21 +1,15 @@
 {
   "version": 2,
-  "routes": [
+  "builds": [
     {
-      "src": "/api/products",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/api/customers?:id",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/api/orders",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/api/register",
-      "dest": "/server.js"
+      "src": "server.js",
+      "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    { "src": "/api/products", "dest": "/server.js" },
+    { "src": "/api/customers", "dest": "/server.js" },
+    { "src": "/api/orders", "dest": "/server.js" },
+    { "src": "/api/register", "dest": "/server.js" }
   ]
 }
