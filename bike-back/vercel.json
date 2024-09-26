@@ -3,19 +3,19 @@
   "routes": [
     {
       "src": "/api/products",
-      "dest": "/api/server.js"
+      "dest": "/server.js"
     },
     {
-      "src": "/api/customers",
-      "dest": "/api/server.js"
+      "src": "/api/customers?:id",
+      "dest": "/server.js"
     },
     {
       "src": "/api/orders",
-      "dest": "/api/server.js"
+      "dest": "/server.js"
     },
     {
       "src": "/api/register",
-      "dest": "/api/server.js"
+      "dest": "/server.js"
     }
   ]
 }
