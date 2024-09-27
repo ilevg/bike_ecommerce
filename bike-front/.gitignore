@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# Игнорировать конфиденциальные ключи
 fbase-private-keys/
 # dependencies
 /node_modules

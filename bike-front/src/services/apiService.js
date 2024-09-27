@@ -14,12 +14,12 @@ export const fetchData = async (endpoint) => {
 export const fetchProducts = async () => {
   try {
     const response = await axios.get(
-      "https://bike-ecommerce-server.vercel.app//products"
+      "https://bike-ecommerce-server.vercel.app/products"
     );
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching data from https://bike-ecommerce-server.vercel.app//products`,
+      `Error fetching data from https://bike-ecommerce-server.vercel.app/products`,
       error
     );
     throw error;
@@ -29,7 +29,7 @@ export const fetchProducts = async () => {
 export const sendOrderJson = async (orderData) => {
   try {
     const response = await axios.post(
-      "https://bike-ecommerce-server.vercel.app//orders",
+      "https://bike-ecommerce-server.vercel.app/orders",
       orderData,
       {
         headers: {
