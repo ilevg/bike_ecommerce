@@ -7,16 +7,9 @@ require("dotenv").config();
 
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 const app = express();
-
-const api = new WooCommerceRestApi({
-  url: process.env.WORDPRESS_SITE_URL,
-  consumerKey: process.env.WC_CONSUMER_KEY,
-  consumerSecret: process.env.WC_CONSUMER_SECRET,
-  version: "wc/v3",
-});
-
 app.use((req, res, next) => {
   const allowedOrigins = [
+    "back-test-three.vercel.app",
     "http://localhost:3000",
     "http://bike-ecommerce:3000",
     "http://192.168.2.239:3000",
@@ -32,10 +25,19 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 app.use(bodyParser.json());
+
+const api = new WooCommerceRestApi({
+  url: process.env.WORDPRESS_SITE_URL,
+  consumerKey: process.env.WC_CONSUMER_KEY,
+  consumerSecret: process.env.WC_CONSUMER_SECRET,
+  version: "wc/v3",
+});
+
 app.get("/", (req, res) => {
   res.send("API is running!");
 });
-app.get("/api/products", async (req, res) => {
+
+app.get("/products", async (req, res) => {
   try {
     const { data } = await api.get("products", { per_page: 50 });
     res.json(data);
@@ -47,7 +49,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-app.get("/api/customers?:id", async (req, res) => {
+app.get("/customers?:id", async (req, res) => {
   try {
     const { data } = await api.get("customers");
     res.json(data);
@@ -59,7 +61,7 @@ app.get("/api/customers?:id", async (req, res) => {
   }
 });
 
-app.post("/api/orders", async (req, res) => {
+app.post("/orders", async (req, res) => {
   try {
     const orderData = req.body;
     const isHeadlessCMS = req.headers["x-headless-cms"];
@@ -75,7 +77,7 @@ app.post("/api/orders", async (req, res) => {
   }
 });
 
-app.post("/api/register", async (req, res) => {
+app.post("/register", async (req, res) => {
   const { email, pass } = req.body;
   const authKey = process.env.AUTH_KEY;
   const wordpressUrl = process.env.WORDPRESS_SITE_URL;
