@@ -9,7 +9,7 @@ function SignUpAPI(props) {
 
   useEffect(() => {
     if (props.APIDetailsSignUp.email.length > 0) {
-      const url = "http://localhost:4000/register";
+      const url = "https://bike-ecommerce-server.vercel.app/register";
       axios
         .post(
           url,
