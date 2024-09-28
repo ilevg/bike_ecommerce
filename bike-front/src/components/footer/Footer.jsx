@@ -17,12 +17,9 @@ const Footer = () => {
   useEffect(() => {
     const fetchNavLinks = async () => {
       try {
-        const { data } = await fetchData(
-          "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
-        );
-        if (data) {
-          setNavLinks(data.header.headerMenuItems);
-        }
+        fetchData("links").then((linksData) => {
+          linksData && setNavLinks(linksData.data.header.headerMenuItems);
+        });
       } catch (error) {
         console.error("Failed to fetch navigation links:", error);
       }
