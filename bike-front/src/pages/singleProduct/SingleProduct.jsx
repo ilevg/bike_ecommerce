@@ -9,7 +9,7 @@ import { SingleProductContext } from "../../context/index";
 import SectionParam from "./sectionParam/SectionParam";
 import classNames from "classnames";
 
-import { fetchData } from "../../services/apiService";
+import { fetchProducts } from "../../services/apiService";
 
 const SingleProduct = () => {
   const [productsList, setProductsList] = useState([]);
@@ -19,7 +19,7 @@ const SingleProduct = () => {
   useEffect(() => {
     const fetchNavLinks = async () => {
       try {
-        const products = await fetchData("products");
+        const products = await fetchProducts();
         if (products) {
           setProductsList(products);
         }

@@ -6,6 +6,7 @@ import {
   useCallback,
 } from "react";
 
+import { fetchProducts } from "../services/apiService";
 import { fetchData } from "../services/apiService";
 
 export const AuthContent = createContext(null);
@@ -20,7 +21,7 @@ export const CartContext = createContext([{}, () => {}]);
 export const ListproductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetchData("products").then((prods) => setProducts(prods));
+    fetchProducts().then((prods) => setProducts(prods));
   }, []);
   const memoizedProducts = useMemo(() => products, [products]);
   return (
@@ -33,9 +34,7 @@ export const ListproductsProvider = ({ children }) => {
 export const ListBlogPostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetchData("posts").then((postList) => {
-      postList && setPosts(postList);
-    });
+    fetchData("/wp-json/wp/v2/posts").then((postList) => setPosts(postList));
   }, []);
   const memoizedProducts = useMemo(() => posts, [posts]);
   return (
@@ -88,7 +87,7 @@ export const FilterProvider = ({ children }) => {
   const updateFilter = useCallback((filterName, value) => {
     setFilterValues((prevValues) => ({
       ...prevValues,
-      [filterName]: value,
+      [filterName]: value, // No need for .map, directly set the value
     }));
   }, []);
 

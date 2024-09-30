@@ -23,10 +23,12 @@ const Sidebar = ({ isOpen, menuToggle }) => {
   useEffect(() => {
     const fetchNavLinks = async () => {
       try {
-        fetchData("links").then((linksData) => {
-          console.log(linksData)
-          linksData && setNavLinks(linksData.data.header.headerMenuItems);
-        });
+        const { data } = await fetchData(
+          "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
+        );
+        if (data) {
+          setNavLinks(data.header.headerMenuItems);
+        }
       } catch (error) {
         console.error("Failed to fetch navigation links:", error);
       }

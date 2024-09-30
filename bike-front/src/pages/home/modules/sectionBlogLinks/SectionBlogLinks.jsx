@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SectionBlogLinks.module.scss";
 import SliderSimple from "../../../../components/sliderSimple/SliderSimple";
@@ -8,18 +8,14 @@ import { ListBlogPostContext } from "../../../../context";
 import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
 
 const SectionBlogLinks = () => {
-  const [posts, setPosts] = useContext(ListBlogPostContext);
-  const [cutsBlogPosts, setCutsBlogPosts] = useState([]);
-
-  !posts && console.log(setPosts);
-  useEffect(() => {
-    setCutsBlogPosts( posts.slice(0, 3));
-  }, [posts])
+  const [posts] = useContext(ListBlogPostContext);
+  const cutsBlogPosts = posts.slice(0, 3);
 
   return (
     <>
       <div className={styles.blogPosts}>
-        {cutsBlogPosts && cutsBlogPosts.length && cutsBlogPosts.map((item) => (
+        {cutsBlogPosts &&
+          cutsBlogPosts.map((item) => (
             <div key={item.id} className={styles.blogPostsItems}>
               <div className={styles.blogPostsItem}>
                 <span className={styles.blogPostsDesc}>

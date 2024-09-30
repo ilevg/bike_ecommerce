@@ -22,9 +22,10 @@ const Header = () => {
 
   useEffect(() => {
     const fetchLinks = async () => {
-      fetchData("links").then((linksData) => {
-        linksData && setNavLinks(linksData.data.header.headerMenuItems);
-      });
+      const { data } = await fetchData(
+        "/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer"
+      );
+      setNavLinks(data.header.headerMenuItems);
     };
     fetchLinks();
   }, []);
