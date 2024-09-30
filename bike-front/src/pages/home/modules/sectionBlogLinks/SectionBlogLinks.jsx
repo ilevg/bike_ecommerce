@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SectionBlogLinks.module.scss";
 import SliderSimple from "../../../../components/sliderSimple/SliderSimple";
@@ -9,8 +9,12 @@ import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
 
 const SectionBlogLinks = () => {
   const [posts, setPosts] = useContext(ListBlogPostContext);
+  const [cutsBlogPosts, setCutsBlogPosts] = useState([]);
+
   !posts && console.log(setPosts);
-  const cutsBlogPosts = posts.slice(0, 3);
+  useEffect(() => {
+    setCutsBlogPosts( posts.slice(0, 3));
+  }, [posts])
 
   return (
     <>
