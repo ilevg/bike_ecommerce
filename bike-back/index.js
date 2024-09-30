@@ -38,7 +38,6 @@ app.get("/", (req, res) => {
   res.send("API is running!");
 });
 // ////////////////////////////
-// ("/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer");
 
 app.get("/links", async (req, res) => {
   try {
@@ -56,6 +55,7 @@ app.get("/links", async (req, res) => {
     console.error("Error fetching posts:", error.message);
   }
 });
+
 // ///////////////////////////
 app.get("/posts/:slug?", async (req, res) => {
   try {
