@@ -8,7 +8,9 @@ import { ListBlogPostContext } from "../../../../context";
 import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
 
 const SectionBlogLinks = () => {
-  const [posts] = useContext(ListBlogPostContext);
+  const [posts, setPosts] = useContext(ListBlogPostContext);
+  !posts && console.log(setPosts);
+  console.log(posts);
   const cutsBlogPosts = posts.slice(0, 3);
 
   return (

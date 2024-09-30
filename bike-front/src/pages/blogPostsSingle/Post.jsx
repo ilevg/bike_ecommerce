@@ -14,7 +14,7 @@ const Post = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const blogPost = await fetchData(`/wp-json/wp/v2/posts?slug=${slug}`);
+      const blogPost = await fetchData(`posts/${slug}`);
       setPost(blogPost[0]);
     };
     fetchPost();
