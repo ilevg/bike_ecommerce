@@ -20,7 +20,7 @@ export const CartContext = createContext([{}, () => {}]);
 export const ListproductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetchData("products").then((prods) => prods && setProducts(prods));
+    fetchData("products").then((prods) => setProducts(prods));
   }, []);
   const memoizedProducts = useMemo(() => products, [products]);
   return (
@@ -34,7 +34,6 @@ export const ListBlogPostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetchData("posts").then((postList) => {
-      console.log(postList);
       postList && setPosts(postList);
     });
   }, []);
@@ -89,7 +88,7 @@ export const FilterProvider = ({ children }) => {
   const updateFilter = useCallback((filterName, value) => {
     setFilterValues((prevValues) => ({
       ...prevValues,
-      [filterName]: value, // No need for .map, directly set the value
+      [filterName]: value,
     }));
   }, []);
 
