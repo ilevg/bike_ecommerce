@@ -10,14 +10,12 @@ import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
 const SectionBlogLinks = () => {
   const [posts, setPosts] = useContext(ListBlogPostContext);
   !posts && console.log(setPosts);
-  console.log(posts);
   const cutsBlogPosts = posts.slice(0, 3);
 
   return (
     <>
       <div className={styles.blogPosts}>
-        {cutsBlogPosts &&
-          cutsBlogPosts.map((item) => (
+        {cutsBlogPosts && cutsBlogPosts.map((item) => (
             <div key={item.id} className={styles.blogPostsItems}>
               <div className={styles.blogPostsItem}>
                 <span className={styles.blogPostsDesc}>
