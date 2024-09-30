@@ -8,7 +8,7 @@ export const useSortProducts = (categoryName, sliceNumbers) => {
   const newListEquip = [];
 
   categoryName
-    ? products && products.map((product) => {
+    ? products && products.length && products.map((product) => {
         product.categories[0] &&
           product.categories[0].name === categoryName &&
           newListEquip.push(product);

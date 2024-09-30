@@ -24,6 +24,7 @@ const Sidebar = ({ isOpen, menuToggle }) => {
     const fetchNavLinks = async () => {
       try {
         fetchData("links").then((linksData) => {
+          console.log(linksData)
           linksData && setNavLinks(linksData.data.header.headerMenuItems);
         });
       } catch (error) {

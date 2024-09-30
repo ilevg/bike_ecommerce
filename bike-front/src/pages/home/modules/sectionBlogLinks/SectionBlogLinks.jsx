@@ -15,7 +15,7 @@ const SectionBlogLinks = () => {
   return (
     <>
       <div className={styles.blogPosts}>
-        {cutsBlogPosts && cutsBlogPosts.map((item) => (
+        {cutsBlogPosts && cutsBlogPosts.length && cutsBlogPosts.map((item) => (
             <div key={item.id} className={styles.blogPostsItems}>
               <div className={styles.blogPostsItem}>
                 <span className={styles.blogPostsDesc}>
