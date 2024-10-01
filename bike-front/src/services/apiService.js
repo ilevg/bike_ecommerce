@@ -4,11 +4,11 @@ const backUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const fetchData = async (endpoint) => {
   try {
-    const response = await axios.get(`${backUrl}/${endpoint}`);
+    const response = await axios.get(`${backUrl}${endpoint}`);
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching data from ${backUrl}/${endpoint}`,
+      `Error fetching data from ${backUrl}${endpoint}`,
       error
     );
     throw error;

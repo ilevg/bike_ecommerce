@@ -19,7 +19,6 @@ const Profile = (props) => {
         .then((response) => response.json())
         .then((data) => {
           if (data["success"] === true) {
-            console.log("user was persisted!");
             setEmail(`Email: ${data["data"]["user"]["user_email"]}`);
             setRegDate(
               `Date of registration: ${data["data"]["user"]["user_registered"]}`

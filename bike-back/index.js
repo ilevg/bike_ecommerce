@@ -13,6 +13,7 @@ app.use((req, res, next) => {
     "http://localhost:3000",
     "http://bike-ecommerce:3000",
     "https://bike.artem95ka.com/ilevg",
+    "https://bike-ecommerce-server.vercel.app/"
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {

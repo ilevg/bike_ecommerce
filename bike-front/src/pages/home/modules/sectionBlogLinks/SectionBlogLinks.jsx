@@ -11,7 +11,6 @@ import { fetchData } from "../../../../services/apiService";
 const SectionBlogLinks = () => {
   const [posts] = useContext(ListBlogPostContext);
   const [cutsBlogPosts, setCutsBlogPosts] = useState([])
-  console.log(cutsBlogPosts)
 
 useEffect( () => {
     fetchData("products").then(prod => console.log(prod) )
