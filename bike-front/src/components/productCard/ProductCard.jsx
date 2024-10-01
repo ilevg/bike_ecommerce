@@ -12,29 +12,28 @@ const ProductCard = ({ product }) => {
     (attr) => attr.name.toLowerCase() === "country"
   );
   const productCountry = countryAttr && countryAttr.options[0].toLowerCase();
-  const wordpressSiteUrl = process.env.REACT_APP_WORDPRESS_SITE_URL;
   const stockStatus =
     product.stock_status === "instock" ? "In stock" : "Sold out";
 
   let flagPath = "";
   switch (productCountry) {
     case "usa":
-      flagPath = `${wordpressSiteUrl}/assets/flags/usa.png`;
+      flagPath = `/assets/flags/usa.png`;
       break;
     case "france":
-      flagPath = `${wordpressSiteUrl}/assets/flags/france.png`;
+      flagPath = `/assets/flags/france.png`;
       break;
     case "italy":
-      flagPath = `${wordpressSiteUrl}/assets/flags/italy.png`;
+      flagPath = `/assets/flags/italy.png`;
       break;
     case "spain":
-      flagPath = `${wordpressSiteUrl}/assets/flags/spain.png`;
+      flagPath = `/assets/flags/spain.png`;
       break;
     case "switzerland":
-      flagPath = `${wordpressSiteUrl}/assets/flags/swiss.png`;
+      flagPath = `/assets/flags/swiss.png`;
       break;
     default:
-      flagPath = `${wordpressSiteUrl}/assets/flags/usa.png`;
+      flagPath = `/assets/flags/usa.png`;
       break;
   }
 

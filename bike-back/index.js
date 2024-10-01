@@ -10,11 +10,9 @@ const app = express();
 const wordpressUrl = process.env.WORDPRESS_SITE_URL;
 app.use((req, res, next) => {
   const allowedOrigins = [
-    "back-test-three.vercel.app",
     "http://localhost:3000",
     "http://bike-ecommerce:3000",
-    "http://192.168.2.239:3000",
-    "http://bikeecommerce.atwebpages.com",
+    "https://bike.artem95ka.com/ilevg",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {

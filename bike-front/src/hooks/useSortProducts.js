@@ -3,9 +3,8 @@ import { ListproductsContext } from "../context";
 import { sortArrByDateDesc } from "../helpers/sortArr";
 
 export const useSortProducts = (categoryName, sliceNumbers) => {
-  const [products, setProducts] = useContext(ListproductsContext);
-  !products && console.log(setProducts);
-  console.log(products);
+  const [products] = useContext(ListproductsContext);
+ 
   const newListEquip = [];
 
   categoryName

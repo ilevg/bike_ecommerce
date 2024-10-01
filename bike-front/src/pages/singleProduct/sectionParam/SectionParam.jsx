@@ -9,7 +9,7 @@ const SectionParam = () => {
 
   const attributes = singleProduct && singleProduct.attributes;
   const description =
-    singleProduct.description &&
+    singleProduct && singleProduct.description &&
     singleProduct.description.replace(/<\/?[^>]+(>|$)/g, "");
 
   return (

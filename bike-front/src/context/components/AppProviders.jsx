@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  LinksListProvider,
   ActiveAuthComponentProvider,
   ActiveProfileTabProvider,
   CartProvider,
@@ -18,7 +19,9 @@ const AppProviders = ({ children }) => {
             <ActiveProfileTabProvider>
               <ListBlogPostProvider>
                 <ListproductsProvider>
-                  <SingleProductProvider>{children}</SingleProductProvider>
+                  <LinksListProvider>
+                    <SingleProductProvider>{children}</SingleProductProvider>
+                  </LinksListProvider>
                 </ListproductsProvider>
               </ListBlogPostProvider>
             </ActiveProfileTabProvider>

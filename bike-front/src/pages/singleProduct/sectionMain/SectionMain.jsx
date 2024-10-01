@@ -21,13 +21,13 @@ const SectionMain = () => {
   const article = findAttribute("Article number");
   const brand = findAttribute("Brand");
   const description =
-    singleProduct.description &&
+    singleProduct && singleProduct.description &&
     singleProduct.description.replace(/<\/?[^>]+(>|$)/g, "");
   const truncDesc =
     description && description.length > 50
       ? `${description.substring(0, 150)}...`
       : description;
-  const stockStatus = singleProduct.stock_status;
+  const stockStatus = singleProduct && singleProduct.stock_status;
   const handleStockStatus = stockStatus === "instock" ? "In stock" : "Sold out";
   const handleBtnDisable = stockStatus === "instock" ? false : true;
 
@@ -44,7 +44,7 @@ const SectionMain = () => {
           <span
             className={classNames(
               styles.stock,
-              singleProduct.stock_status === "instock"
+              singleProduct && singleProduct.stock_status === "instock"
                 ? styles.stockGreen
                 : styles.stockRed
             )}

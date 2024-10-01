@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./Sidebar.module.scss";
 import LinkTag from "../../../../UI/linkTag/LinkTag";
 import DropdownField from "../../../../UI/dropdownField/DropdownField";
 import logo from "../../../../assets/img/logo/logo-black.png";
 
-import { fetchData } from "../../../../services/apiService";
 import { linkData } from "../../data/linkData";
+import { LinksListContext } from "../../../../context";
 
 const renderListLinks = (children) =>
   children &&
@@ -18,20 +18,7 @@ const renderListLinks = (children) =>
   });
 
 const Sidebar = ({ isOpen, menuToggle }) => {
-  const [navLinks, setNavLinks] = useState([]);
-
-  useEffect(() => {
-    const fetchNavLinks = async () => {
-      try {
-        fetchData("links").then((linksData) => {
-          linksData && setNavLinks(linksData.data.header.headerMenuItems);
-        });
-      } catch (error) {
-        console.error("Failed to fetch navigation links:", error);
-      }
-    };
-    fetchNavLinks();
-  }, []);
+  const [links] = useContext(LinksListContext);
 
   const classToogle = isOpen
     ? `${styles.sidebarWrapper} ${styles.fadeIn}`
@@ -47,7 +34,7 @@ const Sidebar = ({ isOpen, menuToggle }) => {
         <div className={styles.sidebarItems}>
           <div className={styles.sidebarMob}>
             <DropdownField
-              navLinks={navLinks}
+              navLinks={links}
               renderChildren={renderListLinks}
               closeMenuToogle={menuToggle}
             />

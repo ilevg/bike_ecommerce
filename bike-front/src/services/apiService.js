@@ -8,7 +8,7 @@ export const fetchData = async (endpoint) => {
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching data from https://bike-ecommerce-server.vercel.app/${endpoint}`,
+      `Error fetching data from ${backUrl}/${endpoint}`,
       error
     );
     throw error;

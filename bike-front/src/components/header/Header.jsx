@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "./data/constants/logo";
-import { fetchData } from "../../services/apiService";
 import LinkTag from "../../UI/linkTag/LinkTag";
 import Sidebar from "./components/sidebar/Sidebar";
 import BurgerIcon from "../../assets/img/icons/burger-icon.png";
-import { CartContext } from "../../context";
+import { CartContext, LinksListContext } from "../../context";
 import styles from "./Header.module.scss";
 
 import UserIcon from "../../assets/img/icons/user.png";
@@ -14,20 +13,11 @@ import CartIcon from "../../assets/img/icons/cart.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [navLinks, setNavLinks] = useState([]);
   const [cart] = useContext(CartContext);
+  const [links] = useContext(LinksListContext);
 
   const checkAuth = localStorage.getItem("jwt");
   const authIconPath = checkAuth ? "/profile" : "/authentication";
-
-  useEffect(() => {
-    const fetchLinks = async () => {
-      fetchData("links").then((linksData) => {
-        linksData && setNavLinks(linksData.data.header.headerMenuItems);
-      });
-    };
-    fetchLinks();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +63,7 @@ const Header = () => {
             </Link>
 
             <ul className={styles.headerList}>
-              {navLinks.map(({ ID, url, title }) => (
+              {links.map(({ ID, url, title }) => (
                 <li key={ID}>
                   <LinkTag to={url} text={title}></LinkTag>
                 </li>

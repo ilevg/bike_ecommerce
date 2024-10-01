@@ -10,6 +10,7 @@ import { fetchData } from "../services/apiService";
 
 export const AuthContent = createContext(null);
 export const ListproductsContext = createContext();
+export const LinksListContext = createContext();
 export const ListBlogPostContext = createContext();
 export const SingleProductContext = createContext();
 export const ActiveProfileTabContext = createContext([]);
@@ -27,6 +28,21 @@ export const ListproductsProvider = ({ children }) => {
     <ListproductsContext.Provider value={[memoizedProducts, setProducts]}>
       {children}
     </ListproductsContext.Provider>
+  );
+};
+
+export const LinksListProvider = ({ children }) => {
+  const [links, setLinks] = useState([]);
+  useEffect(() => {
+    fetchData("links").then((linksData) => {
+       setLinks(linksData.data.header.headerMenuItems)
+    });
+  }, []);
+  const memoizedLinks = useMemo(() => links, [links]);
+  return (
+    <LinksListContext.Provider value={[memoizedLinks, setLinks]}>
+      {children}
+    </LinksListContext.Provider>
   );
 };
 

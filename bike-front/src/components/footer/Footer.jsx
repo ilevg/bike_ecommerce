@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./Footer.module.scss";
 import Button from "../../UI/button/Button";
 import { Link } from "react-router-dom";
@@ -7,26 +7,12 @@ import logo from "../../assets/img/logo/logo-white.png";
 import phone from "../../assets/img/footer/phone.png";
 import navigator from "../../assets/img/footer/navigator.png";
 import mail from "../../assets/img/footer/mail.png";
-import { fetchData } from "../../services/apiService";
 import LinkTag from "../../UI/linkTag/LinkTag";
 import classNames from "classnames";
+import { LinksListContext } from "../../context";
 
 const Footer = () => {
-  const [navLinks, setNavLinks] = useState([]);
-
-  useEffect(() => {
-    const fetchNavLinks = async () => {
-      try {
-        fetchData("links").then((linksData) => {
-          linksData && setNavLinks(linksData.data.header.headerMenuItems);
-        });
-      } catch (error) {
-        console.error("Failed to fetch navigation links:", error);
-      }
-    };
-    fetchNavLinks();
-  }, []);
-
+  const [links] = useContext(LinksListContext);
   return (
     <div className={styles.footer}>
       <div className={styles.footerWrapper}>
@@ -74,7 +60,7 @@ const Footer = () => {
               >
                 <h4 className={styles.footerLinksTitle}>Catalog</h4>
                 <ul className={styles.footerLinksList}>
-                  {navLinks.map(({ ID, url, title }) => {
+                  {links.map(({ ID, url, title }) => {
                     return (
                       <li key={ID}>
                         <LinkTag to={url} text={title} color=""></LinkTag>
