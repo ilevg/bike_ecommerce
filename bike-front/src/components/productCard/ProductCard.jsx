@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 const ProductCard = ({ product }) => {
-  const productImg = product.images[0]?.src;
+  const productImg = product && product.images[0]?.src;
 
-  const countryAttr = product.attributes.find(
+  const countryAttr = product && product.attributes.find(
     (attr) => attr.name.toLowerCase() === "country"
   );
   const productCountry = countryAttr && countryAttr.options[0].toLowerCase();
@@ -66,8 +66,8 @@ const ProductCard = ({ product }) => {
       </div>
 
       <span className={styles.cardPrice}>
-        {`${product.price} $`}
-        {product.price < product.regular_price && (
+        {`${product && product.price} $`}
+        {product && product.price < product.regular_price && (
           <span
             className={styles.cardPriceReg}
           >{`${product.regular_price} $`}</span>
