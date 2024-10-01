@@ -21,7 +21,7 @@ export const CartContext = createContext([{}, () => {}]);
 export const ListproductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetchData("products").then((prods) => prods && setProducts(prods));
+    fetchData("products").then((prods) => prods && prods.length && setProducts(prods));
   }, []);
   const memoizedProducts = useMemo(() => products, [products]);
   return (
@@ -35,7 +35,7 @@ export const LinksListProvider = ({ children }) => {
   const [links, setLinks] = useState([]);
   useEffect(() => {
     fetchData("links").then((linksData) => {
-       if (linksData && linksData.data && linksData.data.header) {
+      if (linksData && linksData.data && linksData.data.header) {
         setLinks(linksData.data.header.headerMenuItems);
       }
     });
@@ -51,9 +51,7 @@ export const LinksListProvider = ({ children }) => {
 export const ListBlogPostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetchData("posts").then((postList) => {
-       setPosts(postList);
-    });
+    fetchData("posts").then((postList) => postList && postList.length && setPosts(postList));
   }, []);
   const memoizedProducts = useMemo(() => posts, [posts]);
   return (

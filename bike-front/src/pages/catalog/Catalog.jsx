@@ -21,6 +21,10 @@ const PAGE_SIZE = 12;
 
 const Catalog = () => {
   const [products] = useContext(ListproductsContext);
+    const [productsList, setProductsList] = useState([])
+
+
+
   const [catalogType, setCatalogType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [dropdownField, setDropdownField] = useState([]);
@@ -32,6 +36,13 @@ const Catalog = () => {
   const defaultFilterValues = useContext(FilterContext).defaultFilterValues;
   const filterValueInStock = filterValues["Only in stock"];
 
+
+  useEffect(() => {
+    setProductsList(products)
+  }, [products])
+
+
+
   const getCatalogTypeFormated = useCallback(
     () => pathname.substring(1).charAt(0).toUpperCase() + pathname.substring(2),
     [pathname]
@@ -39,7 +50,7 @@ const Catalog = () => {
 
   const filterAllFunc = useCallback(() => {
     const catalogTypeFormated = getCatalogTypeFormated();
-    let productsCopy = [...products];
+    let productsCopy = [...productsList];
     setCatalogType(catalogTypeFormated);
 
     if (catalogTypeFormated !== "Trade-in") {
@@ -92,7 +103,7 @@ const Catalog = () => {
       switchFilterFunc(key, values);
     }
     setFilteredProducts(filteredProds);
-  }, [products, filterValues, filterValueInStock, getCatalogTypeFormated]);
+  }, [products, productsList, filterValues, filterValueInStock, getCatalogTypeFormated]);
 
   useEffect(() => {
     filterAllFunc();
@@ -128,11 +139,11 @@ const Catalog = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [pathname, products, filterValueInStock]);
+  }, [pathname, products, productsList, filterValueInStock]);
 
   useEffect(() => {
     setFilterValues(defaultFilterValues);
-  }, [pathname, products, setFilterValues, defaultFilterValues]);
+  }, [pathname, products, productsList, setFilterValues, defaultFilterValues]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -171,7 +182,7 @@ const Catalog = () => {
           </div>
 
           <div className={styles.catalogProductsCont}>
-            {currentProducts.map((product) => (
+            {currentProducts && currentProducts.length && currentProducts.map((product) => (
               <div key={product.id} className={styles.catalogProduct}>
                 <ProductCard product={product} />
               </div>
