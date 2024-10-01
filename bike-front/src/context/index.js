@@ -33,9 +33,9 @@ export const ListproductsProvider = ({ children }) => {
 
 export const LinksListProvider = ({ children }) => {
   const [links, setLinks] = useState([]);
-  console.log(links)
   useEffect(() => {
     fetchData("links").then((linksData) => {
+      console.log(linksData)
       if (linksData && linksData.data && linksData.data.header) {
         setLinks(linksData.data.header.headerMenuItems);
       }

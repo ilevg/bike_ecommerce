@@ -103,7 +103,7 @@ const Catalog = () => {
       switchFilterFunc(key, values);
     }
     setFilteredProducts(filteredProds);
-  }, [products, productsList, filterValues, filterValueInStock, getCatalogTypeFormated]);
+  }, [ productsList, filterValues, filterValueInStock, getCatalogTypeFormated]);
 
   useEffect(() => {
     filterAllFunc();
