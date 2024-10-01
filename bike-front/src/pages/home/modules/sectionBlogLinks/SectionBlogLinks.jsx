@@ -14,8 +14,7 @@ const SectionBlogLinks = () => {
   console.log(cutsBlogPosts)
 
 useEffect( () => {
-    const ddd = fetchData("products")
-console.log(ddd)
+    fetchData("products").then(prod => console.log(prod) )
 }, [])
 
   useEffect(() => {
