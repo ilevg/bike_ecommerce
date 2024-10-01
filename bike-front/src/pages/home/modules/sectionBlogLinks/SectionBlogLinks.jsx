@@ -8,10 +8,8 @@ import { ListBlogPostContext } from "../../../../context";
 import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
 
 const SectionBlogLinks = () => {
-  const [posts, setPosts] = useContext(ListBlogPostContext);
-  !posts && console.log(setPosts);
-  console.log(posts);
-  const cutsBlogPosts = posts.slice(0, 3);
+  const [posts] = useContext(ListBlogPostContext);
+  const cutsBlogPosts = Array.isArray(posts) ? posts.slice(0, 3) : [];
 
   return (
     <>
@@ -24,7 +22,7 @@ const SectionBlogLinks = () => {
                   {item.title.rendered}
                 </span>
                 <Link
-                  to={`http://localhost:3000/blog/${item.slug}`}
+                  to={`/blog/${item.slug}`}
                   className={styles.blogPostsLink}
                 >
                   Read more
