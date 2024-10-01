@@ -33,6 +33,7 @@ export const ListproductsProvider = ({ children }) => {
 
 export const LinksListProvider = ({ children }) => {
   const [links, setLinks] = useState([]);
+  console.log(links)
   useEffect(() => {
     fetchData("links").then((linksData) => {
       if (linksData && linksData.data && linksData.data.header) {
@@ -41,6 +42,8 @@ export const LinksListProvider = ({ children }) => {
     });
   }, []);
   const memoizedLinks = useMemo(() => links, [links]);
+    console.log(memoizedLinks)
+
   return (
     <LinksListContext.Provider value={[memoizedLinks, setLinks]}>
       {children}
