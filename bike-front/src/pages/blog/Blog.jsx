@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Blog.module.scss";
 import titleBgImage from "../../assets/img/titlesBg/about.png";
 import classNames from "classnames";
@@ -10,6 +10,11 @@ import { ListBlogPostContext } from "../../context";
 const Blog = () => {
   const [posts] = useContext(ListBlogPostContext);
   const [showMore, setShowMore] = useState(false);
+  const [postsList, setPostsList] = useState([])
+
+  useEffect(() => {
+    setPostsList(posts)
+  }, [posts])
 
   function formatPostData(post) {
     const postHtml = parserHtmlContent(post.content.rendered);
@@ -18,8 +23,8 @@ const Blog = () => {
     return [postHtml, slug, date];
   }
   const displayPosts = showMore
-    ? posts.slice().map(formatPostData)
-    : posts.slice(0, 6).map(formatPostData);
+    ? postsList.slice().map(formatPostData)
+    : postsList.slice(0, 6).map(formatPostData);
 
   const handleShowMore = () => {
     setShowMore(true);

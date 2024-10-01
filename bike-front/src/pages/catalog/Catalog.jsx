@@ -20,10 +20,10 @@ import { useCallback } from "react";
 const PAGE_SIZE = 12;
 
 const Catalog = () => {
+  const [products] = useContext(ListproductsContext);
   const [catalogType, setCatalogType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [dropdownField, setDropdownField] = useState([]);
-  const [products] = useContext(ListproductsContext);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [maxPrice, setMaxPrice] = useState("500");
   const { filterValues, updateFilter } = useContext(FilterContext);

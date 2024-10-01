@@ -16,6 +16,12 @@ const Header = () => {
   const [cart] = useContext(CartContext);
   const [links] = useContext(LinksListContext);
 
+  const [linksList, setLinkList] = useState([])
+  
+  useEffect(() => {
+    setLinkList(links)
+  }, [links])
+
   const checkAuth = localStorage.getItem("jwt");
   const authIconPath = checkAuth ? "/profile" : "/authentication";
 
@@ -63,7 +69,7 @@ const Header = () => {
             </Link>
 
             <ul className={styles.headerList}>
-              {links.map(({ ID, url, title }) => (
+              {linksList.map(({ ID, url, title }) => (
                 <li key={ID}>
                   <LinkTag to={url} text={title}></LinkTag>
                 </li>

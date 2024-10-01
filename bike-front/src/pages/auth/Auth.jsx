@@ -9,10 +9,9 @@ import Login from "./modules/login/Login";
 import Registration from "./modules/registration/Registration";
 
 const Auth = (props) => {
-  const [activeAuthComponent, setActiveAuthComponent] = useContext(
+  const [activeAuthComponent] = useContext(
     ActiveAuthComponentContext
   );
-  !setActiveAuthComponent && console.log(setActiveAuthComponent);
   const renderContent = () => {
     switch (activeAuthComponent) {
       case "login":

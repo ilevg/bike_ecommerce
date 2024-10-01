@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Footer.module.scss";
 import Button from "../../UI/button/Button";
 import { Link } from "react-router-dom";
@@ -13,6 +13,10 @@ import { LinksListContext } from "../../context";
 
 const Footer = () => {
   const [links] = useContext(LinksListContext);
+  const [linksList, setLinkList] = useState([])
+  useContext(() => {
+    setLinkList(links)
+  }, [links])
   return (
     <div className={styles.footer}>
       <div className={styles.footerWrapper}>
@@ -60,7 +64,7 @@ const Footer = () => {
               >
                 <h4 className={styles.footerLinksTitle}>Catalog</h4>
                 <ul className={styles.footerLinksList}>
-                  {links.map(({ ID, url, title }) => {
+                  {linksList.map(({ ID, url, title }) => {
                     return (
                       <li key={ID}>
                         <LinkTag to={url} text={title} color=""></LinkTag>

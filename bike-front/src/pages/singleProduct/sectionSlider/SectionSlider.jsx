@@ -1,15 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductSlider from "../../../components/productSlider/ProductSlider";
 import styles from "./SectionSlider.module.scss";
 import { sortArrByDateDesc } from "../../../helpers/sortArr";
 import { ListproductsContext } from "../../../context";
 
 const SectionSlider = () => {
-  const [sortProducts, setSortProducts] = useState([]);
   const [products] = useContext(ListproductsContext);
+  const [productsList, setProductsList] = useState([])
+  const [sortProducts, setSortProducts] = useState([]);
 
+  useEffect(() => {
+    setProductsList(products)
+  }, [products])
 
-  setSortProducts(products.slice(0, 8).sort(sortArrByDateDesc))
+  useEffect(() => {
+    setSortProducts(productsList.slice(0, 8).sort(sortArrByDateDesc))
+  }, [productsList])
 
   
   return (

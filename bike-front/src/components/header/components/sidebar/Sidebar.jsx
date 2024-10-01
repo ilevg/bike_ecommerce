@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Sidebar.module.scss";
 import LinkTag from "../../../../UI/linkTag/LinkTag";
 import DropdownField from "../../../../UI/dropdownField/DropdownField";
@@ -19,6 +19,10 @@ const renderListLinks = (children) =>
 
 const Sidebar = ({ isOpen, menuToggle }) => {
   const [links] = useContext(LinksListContext);
+  const [linksList, setLinkList] = useState([])
+  useEffect(() => {
+    setLinkList(links)
+  }, [links])
 
   const classToogle = isOpen
     ? `${styles.sidebarWrapper} ${styles.fadeIn}`
@@ -34,7 +38,7 @@ const Sidebar = ({ isOpen, menuToggle }) => {
         <div className={styles.sidebarItems}>
           <div className={styles.sidebarMob}>
             <DropdownField
-              navLinks={links}
+              navLinks={linksList}
               renderChildren={renderListLinks}
               closeMenuToogle={menuToggle}
             />
