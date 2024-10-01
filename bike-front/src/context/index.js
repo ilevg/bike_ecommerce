@@ -35,7 +35,9 @@ export const LinksListProvider = ({ children }) => {
   const [links, setLinks] = useState([]);
   useEffect(() => {
     fetchData("links").then((linksData) => {
-       setLinks(linksData.data.header.headerMenuItems)
+       if (linksData && linksData.data && linksData.data.header) {
+        setLinks(linksData.data.header.headerMenuItems);
+      }
     });
   }, []);
   const memoizedLinks = useMemo(() => links, [links]);
