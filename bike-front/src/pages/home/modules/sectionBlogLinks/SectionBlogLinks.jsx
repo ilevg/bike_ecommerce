@@ -11,6 +11,9 @@ const SectionBlogLinks = () => {
   const [posts] = useContext(ListBlogPostContext);
   const [cutsBlogPosts, setCutsBlogPosts] = useState([])
 
+  console.log(posts)
+    console.log(cutsBlogPosts)
+
   useEffect(() => {
     const blogPosts = Array.isArray(posts) ? posts.slice(0, 3) : [];
     setCutsBlogPosts(blogPosts)
