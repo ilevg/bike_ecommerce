@@ -16,7 +16,7 @@ const SideMenu = ({ email, regDate, userJWT }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
-    window.location.replace("http://localhost:3000/authentication");
+    window.location.replace("https://bike-ecommerce-front.vercel.app/authentication");
   };
 
   return (

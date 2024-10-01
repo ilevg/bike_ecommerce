@@ -37,7 +37,7 @@ function LoginAPI(props) {
         if (response.status === "200") {
           props.setIsLoggedIn(true);
           props.setUsername(props.APIDetailsLogin.email);
-          window.location.replace("http://localhost:3000/profile");
+          window.location.replace("https://bike-ecommerce-front.vercel.app/profile");
         } else {
           console.error("error");
         }

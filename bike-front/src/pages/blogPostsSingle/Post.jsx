@@ -69,7 +69,7 @@ const Post = () => {
         <span>To share:</span>
         <a
           className={styles.socialLink}
-          href="https://t.me/share/url?url=https://localhost:3000/post&text=Проверьте эту статью!"
+          href="https://t.me/share/url?url=https://bike-ecommerce-front.vercel.app/post&text=Проверьте эту статью!"
           target="_blank"
           rel="noreferrer"
         >
@@ -77,7 +77,7 @@ const Post = () => {
         </a>
         <a
           className={styles.socialLink}
-          href="https://t.me/share/url?url=https://localhost:3000/post&text=Проверьте эту статью!"
+          href="https://t.me/share/url?url=https://bike-ecommerce-front.vercel.app/post&text=Проверьте эту статью!"
           target="_blank"
           rel="noreferrer"
         >
@@ -85,7 +85,7 @@ const Post = () => {
         </a>
         <a
           className={styles.socialLink}
-          href="https://t.me/share/url?url=https://localhost:3000/post&text=Проверьте эту статью!"
+          href="https://t.me/share/url?url=https://bike-ecommerce-front.vercel.app/post&text=Проверьте эту статью!"
           target="_blank"
           rel="noreferrer"
         >
@@ -93,7 +93,7 @@ const Post = () => {
         </a>
         <a
           className={styles.socialLink}
-          href="https://t.me/share/url?url=https://localhost:3000/post&text=Проверьте эту статью!"
+          href="https://t.me/share/url?url=https://bike-ecommerce-front.vercel.app/post&text=Проверьте эту статью!"
           target="_blank"
           rel="noreferrer"
         >

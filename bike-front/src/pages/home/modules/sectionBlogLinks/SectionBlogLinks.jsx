@@ -6,15 +6,10 @@ import SliderItem from "../../modules/sectionBlogLinks/components/sliderItem/Sli
 import { useContext } from "react";
 import { ListBlogPostContext } from "../../../../context";
 import BrandCarousel from "../../../../UI/brandCarousel/BrandCarousel";
-import { fetchData } from "../../../../services/apiService";
 
 const SectionBlogLinks = () => {
   const [posts] = useContext(ListBlogPostContext);
   const [cutsBlogPosts, setCutsBlogPosts] = useState([])
-
-useEffect( () => {
-    fetchData("products").then(prod => console.log(prod) )
-}, [])
 
   useEffect(() => {
     const blogPosts = Array.isArray(posts) ? posts.slice(0, 3) : [];

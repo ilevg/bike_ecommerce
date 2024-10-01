@@ -14,7 +14,7 @@ const SectionBanner = () => {
         </p>
         <Link
           className={styles.link}
-          to="http://localhost:3000/blog/super-italian-bike"
+          to="https://bike-ecommerce-front.vercel.app/blog/super-italian-bike"
         >
           More details
         </Link>

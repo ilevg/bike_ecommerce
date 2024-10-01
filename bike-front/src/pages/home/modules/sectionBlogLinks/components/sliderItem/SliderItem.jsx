@@ -7,7 +7,7 @@ const SliderItem = ({ item }) => {
     <div className={styles.item}>
       <span className={styles.itemDesc}>{item.title.rendered}</span>
       <Link
-        to={`http://localhost:3000/blog/${item.slug}`}
+        to={`https://bike-ecommerce-front.vercel.app/blog/${item.slug}`}
         className={styles.itemLink}
       >
         Read more

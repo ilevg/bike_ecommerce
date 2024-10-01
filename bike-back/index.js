@@ -37,7 +37,6 @@ app.get("/", (req, res) => {
   res.send("API is running!");
 });
 // ////////////////////////////
-// ("/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer");
 
 app.get("/links", async (req, res) => {
   try {
