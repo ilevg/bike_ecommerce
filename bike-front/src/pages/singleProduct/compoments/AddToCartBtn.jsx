@@ -8,8 +8,10 @@ import {
 } from "../../../helpers/CartHelpers";
 
 const AddToCartBtn = ({ product, disabled }) => {
-  const [setCart] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
+  
   let existingCart = localStorage.getItem("woo-react-cart");
+
   const handleAddToCartClick = () => {
     if (existingCart) {
       existingCart = JSON.parse(existingCart);

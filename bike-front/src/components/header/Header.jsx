@@ -13,7 +13,7 @@ import CartIcon from "../../assets/img/icons/cart.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [cart] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
   const [links] = useContext(LinksListContext);
 
   const [linksList, setLinkList] = useState([])

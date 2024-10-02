@@ -21,7 +21,7 @@ export const CartContext = createContext([{}, () => {}]);
 export const ListproductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetchData("products").then((prods) => prods && prods.length && setProducts(prods));
+    fetchData("products").then((prods) => prods && setProducts(prods));
   }, []);
   const memoizedProducts = useMemo(() => products, [products]);
   return (
@@ -139,7 +139,7 @@ export const FilterProvider = ({ children }) => {
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(null);
-
+  
   useEffect(() => {
     let cartData = localStorage.getItem("woo-react-cart");
     cartData = cartData ? JSON.parse(cartData) : "";

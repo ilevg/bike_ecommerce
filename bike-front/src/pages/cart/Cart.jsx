@@ -12,8 +12,14 @@ import { CartContext } from "../../context";
 import CartItem from "./components/cartItem/CartItem";
 
 const Cart = () => {
+  const [cart, setCart] = useContext(CartContext);
   const sortProductsForSlider = useSortProducts("", 8);
-  const [cart] = useContext(CartContext);
+
+  const handleEmptyCart = () => {
+    setCart(null);
+    localStorage.removeItem("woo-react-cart");
+  };
+
   return (
     <>
       <PagesTitle img={titleBgImage} pageName="Cart" />
@@ -27,9 +33,7 @@ const Cart = () => {
                   to="/trade-in"
                   color="black"
                 />
-                <button className={styles.cartEmptyBtn} type="button">
-                  Empty the cart
-                </button>
+                <button className={styles.cartEmptyBtn} type="button" onClick={handleEmptyCart}>Empty the cart</button>
               </div>
               {cart.products.length &&
                 cart.products.map((product) => (

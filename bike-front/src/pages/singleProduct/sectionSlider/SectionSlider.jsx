@@ -6,16 +6,11 @@ import { ListproductsContext } from "../../../context";
 
 const SectionSlider = () => {
   const [products] = useContext(ListproductsContext);
-  const [productsList, setProductsList] = useState([])
   const [sortProducts, setSortProducts] = useState([]);
 
   useEffect(() => {
-    setProductsList(products)
+    setSortProducts(products.slice(0, 8).sort(sortArrByDateDesc))
   }, [products])
-
-  useEffect(() => {
-    setSortProducts(productsList.slice(0, 8).sort(sortArrByDateDesc))
-  }, [productsList])
 
   
   return (

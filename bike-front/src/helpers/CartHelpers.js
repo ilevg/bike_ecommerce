@@ -5,11 +5,11 @@ export const createNewProduct = (
   qty
 ) => {
   return {
-    id: product.id,
+    id: product?.id,
     productPrice: productPrice,
     productOldPrice: productOldPrice,
-    productImg: product.images[0].src,
-    productName: product.name,
+    productImg: product?.images[0]?.src || '',
+    productName: product?.name,
     productQty: qty,
     totalPrice: parseFloat((productPrice * qty).toFixed(2)),
   };

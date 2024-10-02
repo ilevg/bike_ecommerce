@@ -13,6 +13,7 @@ import SendOrderSuccessModal from "./components/sendOrderSuccessModal/SendOrderS
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
+  !cart && console.log(setCart);
   const [pay, setPay] = useState("stripe");
   const [shiping, setShiping] = useState("deliveryCur");
   const [formError, setFormError] = useState(false);

@@ -8,7 +8,7 @@ import CloseBtn from "../../../../UI/closeBtn/CloseBtn";
 import styles from "./CartItem.module.scss";
 
 const CartItem = ({ product, id }) => {
-  const [setCart] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
 
   const [productCount, setProductCount] = useState(product.productQty);
 
