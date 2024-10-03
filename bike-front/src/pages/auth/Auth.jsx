@@ -9,7 +9,7 @@ import Login from "./modules/login/Login";
 import Registration from "./modules/registration/Registration";
 
 const Auth = (props) => {
-  const [activeAuthComponent] = useContext(
+  const [activeAuthComponent, setActiveAuthComponent] = useContext(
     ActiveAuthComponentContext
   );
   const renderContent = () => {

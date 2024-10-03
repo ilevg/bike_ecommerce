@@ -6,11 +6,11 @@ import Button from "../../../../UI/button/Button";
 import styles from "./Registration.module.scss";
 
 const Registration = ({ props }) => {
-  const [setActiveAuthComponent] = useContext(ActiveAuthComponentContext);
+  const [activeAuthComponent, setActiveAuthComponent] = useContext(ActiveAuthComponentContext);
   const [error, setError] = useState(false);
 
   const handleTabClick = (tab) => {
-    setActiveAuthComponent(tab);
+    activeAuthComponent && setActiveAuthComponent(tab);
   };
   const [APIDetailsSignUp, setAPIDetailsSignUp] = useState({
     email: "",

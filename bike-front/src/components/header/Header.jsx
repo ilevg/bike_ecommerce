@@ -9,15 +9,13 @@ import styles from "./Header.module.scss";
 
 import UserIcon from "../../assets/img/icons/user.png";
 import CartIcon from "../../assets/img/icons/cart.png";
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [cart, setCart] = useContext(CartContext);
   const [links] = useContext(LinksListContext);
-
   const [linksList, setLinkList] = useState([])
-  
+
   useEffect(() => {
     setLinkList(links)
   }, [links])

@@ -6,10 +6,10 @@ import Button from "../../../../UI/button/Button";
 import styles from "./Login.module.scss";
 
 const Login = ({ props }) => {
-  const [setActiveAuthComponent] = useContext(ActiveAuthComponentContext);
+  const [activeAuthComponent, setActiveAuthComponent] = useContext(ActiveAuthComponentContext);
  
-  const handleTabClick = (tab) => {
-    setActiveAuthComponent(tab);
+   const handleTabClick = (tab) => {
+    activeAuthComponent && setActiveAuthComponent(tab);
   };
 
   const [APIDetailsLogin, setAPIDetailsLogin] = useState({

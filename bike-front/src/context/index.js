@@ -84,9 +84,7 @@ export const ActiveProfileTabProvider = ({ children }) => {
 export const ActiveAuthComponentProvider = ({ children }) => {
   const [activeAuthComponent, setActiveAuthComponent] = useState("login");
   return (
-    <ActiveAuthComponentContext.Provider
-      value={[activeAuthComponent, setActiveAuthComponent]}
-    >
+    <ActiveAuthComponentContext.Provider value={[activeAuthComponent, setActiveAuthComponent]}>
       {children}
     </ActiveAuthComponentContext.Provider>
   );
