@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
-import Loader from "./components/loader/Loader";
 import ScrollTop from "./components/scrollTop/ScrollTop";
 import AppProviders from "./context/components/AppProviders";
 import "./styles/index.scss";
@@ -13,7 +12,7 @@ function App() {
   return (
     <AppProviders>
       <BrowserRouter>
-        <Suspense fallback={<Loader />}>
+        <Suspense >
           <ScrollTop />
           <Header />
           <AppRouter />
