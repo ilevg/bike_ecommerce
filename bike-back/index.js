@@ -10,10 +10,8 @@ const app = express();
 const wordpressUrl = process.env.WORDPRESS_SITE_URL;
 app.use((req, res, next) => {
   const allowedOrigins = [
-    "http://localhost:3000",
-    "http://bike-ecommerce:3000",
-    "https://bike.artem95ka.com/ilevg",
-    "https://bike-ecommerce-server.vercel.app/"
+    "http://bikeecommerce.atwebpages.com",
+    "https://bike-ecommerce-server.vercel.app"
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
