@@ -14,7 +14,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     if (userJWT.length > 0) {
-      let url = `http://bikeecommerce.atwebpages.com/?rest_route=/simple-jwt-login/v1/auth/validate&JWT=${userJWT}`;
+      let url = `https://www.bike.school-web.tech/?rest_route=/simple-jwt-login/v1/auth/validate&JWT=${userJWT}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {

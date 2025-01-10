@@ -14,12 +14,15 @@ const DropdownField = ({ navLinks, renderChildren, closeMenuToogle }) => {
   const renderSubcategory = (link, index) => {
     const { title, children } = link;
     const arrowIcon = isOpenState[index] ? "ᐱ" : "ᐯ";
+
     const subcategoryActiveClassToggle = isOpenState[index]
       ? `${styles.navMobSubcategory} ${styles.subcategoryActive}`
       : styles.navMobSubcategory;
+
     const navMobOpenClassToggle = isOpenState[index]
       ? `${styles.navMobLinks}`
       : `${styles.navMobLinks} ${styles.navMobClose}`;
+
     const renderNavLinkSubcategory =
       children && children.length > 0
         ? renderChildren(children)

@@ -10,7 +10,7 @@ function LoginAPI(props) {
       formData.append("password", props.APIDetailsLogin.pass);
       formData.append("AUTH_KEY", props.APIDetailsLogin.AUTH_KEY);
       const url =
-        "http://bikeecommerce.atwebpages.com/?rest_route=/simple-jwt-login/v1/auth";
+        "https://www.bike.school-web.tech/?rest_route=/simple-jwt-login/v1/auth";
       fetch(url, {
         method: "POST",
         body: formData,
@@ -20,7 +20,7 @@ function LoginAPI(props) {
           if (data["success"] === true) {
             localStorage.setItem("jwt", data["data"]["jwt"]);
             setUrlToLogin(
-              `http://bikeecommerce.atwebpages.com/?rest_route=/simple-jwt-login/v1/autologin&JWT=${data["data"]["jwt"]}&AUTH_KEY=Key123`
+              `https://www.bike.school-web.tech/?rest_route=/simple-jwt-login/v1/autologin&JWT=${data["data"]["jwt"]}&AUTH_KEY=Key123`
             );
           } else {
             props.setServerMessage(data["data"]["message"]);

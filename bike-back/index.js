@@ -8,9 +8,11 @@ require("dotenv").config();
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 const app = express();
 const wordpressUrl = process.env.WORDPRESS_SITE_URL;
+
 app.use((req, res, next) => {
   const allowedOrigins = [
-    "http://bikeecommerce.atwebpages.com",
+    "https://www.bike.school-web.tech",
+    "https://bike-ecommerce-front.vercel.app",
     "https://bike-ecommerce-server.vercel.app"
   ];
   const origin = req.headers.origin;
@@ -34,7 +36,6 @@ const api = new WooCommerceRestApi({
 app.get("/", (req, res) => {
   res.send("API is running!");
 });
-// ////////////////////////////
 
 app.get("/links", async (req, res) => {
   try {
@@ -52,7 +53,7 @@ app.get("/links", async (req, res) => {
     console.error("Error fetching posts:", error.message);
   }
 });
-// ///////////////////////////
+
 app.get("/posts/:slug?", async (req, res) => {
   try {
     const slug = req.params.slug;
