@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import RouteWrapper from "./RouteWrapper";
+import Home from "../pages/home/Home";
 
 const Cart = lazy(() => import("../pages/cart/Cart"));
 const Checkout = lazy(() => import("../pages/checkout/Checkout"));
@@ -14,7 +15,6 @@ const Post = lazy(() => import("../pages/blogPostsSingle/Post"));
 const SingleProduct = lazy(() =>
   import("../pages/singleProduct/SingleProduct")
 );
-const Home = lazy(() => import("../pages/home/Home"));
 const NotFound = lazy(() => import("../pages/notFound/NotFound"));
 const Auth = lazy(() => import("../pages/auth/Auth"));
 const Profile = lazy(() => import("../pages/profile/Profile"));

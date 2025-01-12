@@ -64,11 +64,6 @@ const SectionMain = () => {
           <span className={styles.desc}>{truncDesc}</span>
 
           <div className={styles.productButtons}>
-            <div className={styles.productQuantityCont}>
-              <span className={styles.productDecr}>-</span>
-              <span className={styles.productQuantity}>0</span>
-              <span className={styles.productIncr}>+</span>
-            </div>
             <div>
               <AddToCartBtn
                 product={singleProduct}

@@ -24,6 +24,7 @@ const Post = () => {
   const html = post && post.content.rendered;
   const data = parserHtmlContent(html);
 
+  console.log(data)
   return (
     <div>
       <PagesTitle img={titleBgImage} pageName={postTitle} />
