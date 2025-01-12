@@ -1,28 +1,14 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import styles from "./ScrollTop.module.scss";
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 const ScrollTop = () => {
-  const { pathname } = useLocation();
-  const [showOpacityEl, setShowOpacityEl] = useState(true);
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
+  }, [pathname])
 
-    setShowOpacityEl(true);
-    const timeout = setTimeout(() => {
-      setShowOpacityEl(false);
-    }, 1000);
+  return null
+}
 
-    return () => clearTimeout(timeout);
-  }, [pathname]);
-
-  return (
-    <div
-      className={`${showOpacityEl ? styles.opacityElem : styles.hide}`}
-    ></div>
-  );
-};
-
-export default ScrollTop;
+export default ScrollTop

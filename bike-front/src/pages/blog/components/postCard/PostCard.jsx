@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
       <div className={styles.cardDesc}>
         <span>{formattedDate}</span>
         <span className={styles.postType}>#rewiev</span>
-        <h3 className={styles.cardTitle}>{post[0][0].content}</h3>
+        <h3 className={styles.cardTitle}>{post[1]}</h3>
         <LinkTag to={`/blog/${postSlug}`} text="More..." />
       </div>
     </div>

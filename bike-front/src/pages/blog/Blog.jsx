@@ -6,6 +6,7 @@ import PagesTitle from "../../components/pagesTitle/PagesTitle";
 import PostCard from "./components/postCard/PostCard";
 import { parserHtmlContent } from "../../utils/parserHtmlContent";
 import { ListBlogPostContext } from "../../context";
+import Spinner from "../../UI/spinner/Spinner";
 
 const Blog = () => {
   const [posts] = useContext(ListBlogPostContext);
@@ -33,23 +34,27 @@ const Blog = () => {
   return (
     <>
       <PagesTitle img={titleBgImage} pageName="Blog" />
-      <div className={classNames(styles.blog, "container")}>
-        <div className={styles.blogPosts}>
-          {displayPosts.map((posts, index) => (
-            <PostCard key={index} post={posts} />
-          ))}
-        </div>
+      {
+        displayPosts.length
+          ? <div className={classNames(styles.blog, "container")}>
+            <div className={styles.blogPosts}>
+              {displayPosts.map((post, index) => (
+                <PostCard key={index} post={post} />
+              ))}
+            </div>
 
-        {!showMore && (
-          <button
-            className={styles.blogBtn}
-            type="button"
-            onClick={handleShowMore}
-          >
-            Show more...
-          </button>
-        )}
-      </div>
+            {!showMore && (
+              <button
+                className={styles.blogBtn}
+                type="button"
+                onClick={handleShowMore}
+              >
+                Show more...
+              </button>
+            )}
+          </div>
+          : <Spinner />
+      }
     </>
   );
 };

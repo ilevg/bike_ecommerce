@@ -16,6 +16,7 @@ import {
 } from "../../helpers/sortArr";
 import { FilterContext } from "../../context";
 import { useCallback } from "react";
+import Spinner from "../../UI/spinner/Spinner";
 
 const PAGE_SIZE = 12;
 
@@ -93,7 +94,7 @@ const Catalog = () => {
       switchFilterFunc(key, values);
     }
     setFilteredProducts(filteredProds);
-  }, [ products, filterValues, filterValueInStock, getCatalogTypeFormated]);
+  }, [products, filterValues, filterValueInStock, getCatalogTypeFormated]);
 
   useEffect(() => {
     filterAllFunc();
@@ -172,11 +173,15 @@ const Catalog = () => {
           </div>
 
           <div className={styles.catalogProductsCont}>
-            {currentProducts && currentProducts.length && currentProducts.map((product) => (
-              <div key={product.id} className={styles.catalogProduct}>
-                <ProductCard product={product} />
-              </div>
-            ))}
+            {(currentProducts && currentProducts.length)
+              ? currentProducts.map((product) => (
+                <div key={product.id} className={styles.catalogProduct}>
+                  <ProductCard product={product} />
+                </div>
+
+              ))
+              : <Spinner />
+            }
           </div>
         </div>
 

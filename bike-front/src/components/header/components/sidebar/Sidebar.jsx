@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import styles from "./Sidebar.module.scss";
 import LinkTag from "../../../../UI/linkTag/LinkTag";
 import DropdownField from "../../../../UI/dropdownField/DropdownField";
@@ -19,14 +19,20 @@ const renderListLinks = (children) =>
 
 const Sidebar = ({ isOpen, menuToggle }) => {
   const [links] = useContext(LinksListContext);
-  const [linksList, setLinkList] = useState([])
-  useEffect(() => {
-    setLinkList(links)
-  }, [links])
 
   const classToogle = isOpen
     ? `${styles.sidebarWrapper} ${styles.fadeIn}`
     : `${styles.sidebarWrapper} ${styles.fadeOut}`;
+
+  const scrollWidth = useMemo(() => window.innerWidth - document.body.offsetWidth, [])
+
+  useEffect(() => {
+    const newMargin = isOpen && scrollWidth === 0 ? '17px' : '0px';
+
+    if (document.body.style.marginRight !== newMargin) {
+      document.body.style.marginRight = newMargin;
+    }
+  }, [isOpen, scrollWidth])
 
   return (
     <div className={classToogle}>
@@ -38,7 +44,7 @@ const Sidebar = ({ isOpen, menuToggle }) => {
         <div className={styles.sidebarItems}>
           <div className={styles.sidebarMob}>
             <DropdownField
-              navLinks={linksList}
+              navLinks={links}
               renderChildren={renderListLinks}
               closeMenuToogle={menuToggle}
             />

@@ -7,7 +7,7 @@ import titleBgImage from "../../assets/img/titlesBg/about.png";
 import telegramIcon from "../../assets/img/blog/singlePostPage/telegram.png";
 import { fetchData } from "../../services/apiService";
 import { parserHtmlContent } from "../../utils/parserHtmlContent";
-
+import Spinner from '../../UI/spinner/Spinner'
 const Post = () => {
   const { slug } = useParams();
   const [post, setPost] = useState("");
@@ -24,48 +24,52 @@ const Post = () => {
   const html = post && post.content.rendered;
   const data = parserHtmlContent(html);
 
-  console.log(data)
   return (
     <div>
       <PagesTitle img={titleBgImage} pageName={postTitle} />
-      <div className={classNames("container", styles.post)}>
-        <h2 className={styles.bannerSubtitle}>
-          {data.length > 0 && data[0].content}
-        </h2>
-        <p className={styles.bannerDesc}>
-          {data.length > 0 && data[1].content[0]}
-        </p>
-        <img
-          className={styles.bannerImg}
-          src={data.length > 0 ? data[1].content[1].src : ""}
-          alt={data.length > 0 ? data[1].content[1].alt : ""}
-        />
+      {
+        data.length
+          ? <div className={classNames("container", styles.post)}>
+            <h2 className={styles.bannerSubtitle}>
+              {data.length > 0 && data[0].content}
+            </h2>
+            <p className={styles.bannerDesc}>
+              {data.length > 0 && data[1].content[0]}
+            </p>
+            <img
+              className={styles.bannerImg}
+              src={data.length > 0 ? data[1].content[1].src : ""}
+              alt={data.length > 0 ? data[1].content[1].alt : ""}
+            />
 
-        {data.length > 0 &&
-          data.slice(2).map((item, index) => (
-            <div key={index}>
-              {item.type === "heading" && (
-                <h3 className={styles.bannerSubtitle}>{item.content}</h3>
-              )}
-              {item.type === "description" ? (
-                <div
-                  className={
-                    index % 3 ? styles.postItem : styles.postItemReverse
-                  }
-                >
-                  {<p className={styles.desc}>{item.content[0]}</p>}
-                  {
-                    <img
-                      className={styles.imgDesc}
-                      src={item.content[1].src}
-                      alt={item.content[1].alt}
-                    />
-                  }
+            {data.length > 0 &&
+              data.slice(2).map((item, index) => (
+                <div key={index}>
+                  {item.type === "heading" && (
+                    <h3 className={styles.bannerSubtitle}>{item.content}</h3>
+                  )}
+                  {item.type === "description" ? (
+                    <div
+                      className={
+                        index % 3 ? styles.postItem : styles.postItemReverse
+                      }
+                    >
+                      {<p className={styles.desc}>{item.content[0]}</p>}
+                      {
+                        <img
+                          className={styles.imgDesc}
+                          src={item.content[1].src}
+                          alt={item.content[1].alt}
+                        />
+                      }
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
-            </div>
-          ))}
-      </div>
+              ))}
+          </div>
+          : <Spinner />
+      }
+
       <div className={classNames("container", styles.postShare)}>
         <span>To share:</span>
         <a
